@@ -137,24 +137,24 @@ const products = [
     },
     {
         id: 13,
-        name: "Gold Trophy Cup",
-        price: 45.00,
+        name: "Gold Trophy",
+        price: 23,
         category: "trophy-medal",
         desc: "Premium Trophy Award",
-        image: "https://picsum.photos/400/400?random=13",
+        image: "https://gw.alicdn.com/bao/uploaded/i1/2217540625539/O1CN01jojdjF1qmum36yECk_!!2217540625539.jpg_q30.jpg_.webp",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
     },
     {
         id: 14,
-        name: "Silver Medal",
-        price: 18.00,
+        name: "Gold Trophy",
+        price: 23.00,
         category: "trophy-medal",
-        desc: "Competition Medal",
-        image: "https://picsum.photos/400/400?random=14",
+        desc: "Premium Trophy Award",
+        image: "https://gw.alicdn.com/bao/uploaded/i4/2217540625539/O1CN01446RIR1qmum8i8tup_!!2217540625539.jpg_q30.jpg_.webp",
         colors: [
-            { name: "Silver", code: "#9ca3af" }
+            { name: "Gold", code: "#eab308" }
         ]
     },
     {
