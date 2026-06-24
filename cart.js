@@ -223,3 +223,100 @@ function renderCart() {
 window.toggleCart = toggleCart;
 window.closeCart = closeCart;
 window.addToCart = addToCart;
+// ======================
+// Copy Cart
+// ======================
+window.copyCart = function(){
+
+    if(cart.length === 0){
+
+        alert("Cart Empty");
+
+        return;
+
+    }
+
+    let text = "CCC Stationery Order\n\n";
+
+    cart.forEach(item => {
+
+        text +=
+            `${item.name} (${item.color || "Default"}) x${item.quantity}\n`;
+
+    });
+
+    const total = cart.reduce(
+        (sum,item)=>
+        sum + item.price * item.quantity,
+        0
+    );
+
+    text += `\nTotal: RM ${total.toFixed(2)}`;
+
+    navigator.clipboard.writeText(text);
+
+    alert("Copied Successfully");
+
+};
+
+// ======================
+// Download PDF
+// ======================
+window.downloadPDF = function(){
+
+    if(cart.length === 0){
+
+        alert("Cart Empty");
+
+        return;
+
+    }
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text(
+        "CCC Stationery Order",
+        20,
+        20
+    );
+
+    let y = 40;
+
+    cart.forEach(item => {
+
+        doc.setFontSize(12);
+
+        doc.text(
+            `${item.name} (${item.color || "Default"}) x${item.quantity}`,
+            20,
+            y
+        );
+
+        y += 10;
+
+    });
+
+    const total = cart.reduce(
+        (sum,item)=>
+        sum + item.price * item.quantity,
+        0
+    );
+
+    y += 10;
+
+    doc.setFontSize(14);
+
+    doc.text(
+        `Total: RM ${total.toFixed(2)}`,
+        20,
+        y
+    );
+
+    doc.save(
+        "CCC_Order.pdf"
+    );
+
+};
