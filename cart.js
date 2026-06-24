@@ -192,7 +192,6 @@ function renderCart() {
                         +
                     </button>
                     <button
-                        <button
     onclick="removeItem(${index})"
     style="
     width:34px;
