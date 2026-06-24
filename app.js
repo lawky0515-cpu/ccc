@@ -92,6 +92,7 @@ function showDetail(id) {
         .classList.remove(
             "hidden"
         );
+    document.body.style.overflow = "hidden";
 }
 // Close Detail
 window.closeDetail = function () {
@@ -102,6 +103,7 @@ window.closeDetail = function () {
         .classList.add(
             "hidden"
         );
+    document.body.style.overflow = "auto";
 };
 // Render Colors
 function renderColorOptions() {
