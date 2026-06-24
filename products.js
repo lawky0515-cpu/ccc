@@ -40,10 +40,10 @@ const products = [
         price: 19.99,
         category: "sports",
         desc: "6mm Non Slip Yoga Mat",
-        image: "images/EAC95464-77D7-4B20-8EA0-578230FF9E1E.png",
+        image: "https://gw.alicdn.com/bao/uploaded/i1/2577160010/O1CN01UgTVl71Bwd0wmWynL_!!2577160010.jpg_.webp",
         colors: [
-            { name: "Pink", code: "#ec4899" },
-            { name: "Blue", code: "#3b82f6" }
+            { name: "Green", code: "#55855e" },
+            { name: "Black", code: "#000000" }
         ]
     },
     {
