@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1.0,
+             maximum-scale=1.0,
+             user-scalable=no">
+    <title>CCC Stationery</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+<!-- Banner -->
+<section class="banner">
+    <div class="banner-content">
+        <h1>CCC Stationery</h1>
+        <p>Back To School Sale</p>
+        <span>Up To 20% OFF</span>
+    </div>
+</section>
+<!-- Header -->
+<header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between gap-3">
+            <div class="logo">
+                CCC Stationery
+            </div>
+            <div class="flex-1 max-w-md">
+                <div class="relative">
+                    <input
+                        id="search-input"
+                        type="text"
+                        placeholder="Search Products..."
+                        class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+            </div>
+            <button
+                class="cart-btn"
+                onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">
+                    0
+                </span>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- Category -->
+<div class="max-w-7xl mx-auto px-4 py-4 category-wrapper">
+    <div class="flex flex-nowrap gap-2 overflow-x-auto whitespace-nowrap">
+        <button
+            id="cat-all"
+            onclick="filterCategory('all')"
+            class="category-btn active">
+            All
+        </button>
+        <button
+            id="cat-stationery"
+            onclick="filterCategory('stationery')"
+            class="category-btn">
+            Stationery
+        </button>
+        <button
+            id="cat-sports"
+            onclick="filterCategory('sports')"
+            class="category-btn">
+            Sports
+        </button>
+        <button
+            id="cat-art"
+            onclick="filterCategory('art')"
+            class="category-btn">
+            Art
+        </button>
+        <button
+            id="cat-music"
+            onclick="filterCategory('music')"
+            class="category-btn">
+            Music
+        </button>
+        <button
+            id="cat-stem"
+            onclick="filterCategory('stem')"
+            class="category-btn">
+            STEM
+        </button>
+        <button
+            id="cat-trophy-medal"
+            onclick="filterCategory('trophy-medal')"
+            class="category-btn">
+            Trophy
+        </button>
+        <button
+            id="cat-camping"
+            onclick="filterCategory('camping')"
+            class="category-btn">
+            Camping
+        </button>
+    </div>
+</div>
+<!-- Products -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <h2 class="text-2xl font-bold mb-6">
+            Our Products
+        </h2>
+        <div
+            id="products-container"
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        </div>
+    </main>
+    <!-- Product Detail Modal -->
+    <div
+        id="product-detail-modal"
+        class="hidden modal-overlay">
+        <div class="detail-modal">
+            <div class="modal-header">
+                <h3 id="detail-name">
+                    Product Name
+                </h3>
+                <button onclick="closeDetail()">
+                    ×
+                </button>
+            </div>
+            <div class="detail-body">
+                <!-- Product Image -->
+                <div id="detail-image">
+                </div>
+                <div class="p-5">
+                    <!-- Description -->
+                    <p id="detail-desc">
+                        Product Description
+                    </p>
+                    <!-- Price -->
+                    <div
+                        id="detail-price"
+                        class="product-price"
+                        style="margin-top:15px;">
+                        RM 0.00
+                    </div>
+                    <!-- Color -->
+                    <div style="margin-top:20px;">
+                        <h4 class="font-semibold">
+                            Color
+                        </h4>
+                        <div
+                            id="color-options"
+                            class="flex flex-wrap gap-2 mt-2">
+                        </div>
+                    </div>
+                    <!-- Quantity -->
+                    <div style="margin-top:20px;">
+                        <h4 class="font-semibold">
+                            Quantity
+                        </h4>
+                        <div
+                            class="flex items-center gap-3 mt-2">
+                            <button
+                                onclick="changeDetailQty(-1)"
+                                class="border px-3 py-1 rounded">
+                                -
+                            </button>
+                            <span id="detail-qty">
+                                1
+                            </span>
+                            <button
+                                onclick="changeDetailQty(1)"
+                                class="border px-3 py-1 rounded">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Add To Cart -->
+                    <button
+                        class="add-cart-btn mt-5"
+                        onclick="addCurrentToCart()">
+                        Add To Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shopping Cart Modal -->
+    <div
+        id="cart-modal"
+        class="hidden modal-overlay">
+        <div class="cart-modal">
+            <div class="modal-header">
+                <h3>
+                    Shopping Cart
+                </h3>
+                <button onclick="closeCart()">
+                    ×
+                </button>
+            </div>
+            <div
+                id="cart-items"
+                class="cart-body">
+            </div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="total-price">
+                        RM 0.00
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JS -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
