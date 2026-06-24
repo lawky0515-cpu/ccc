@@ -206,15 +206,31 @@
                 class="cart-body">
             </div>
             <div class="cart-footer">
-                <div class="total-row">
-                    <span>Total</span>
-                    <span id="total-price">
-                        RM 0.00
-                    </span>
-                </div>
-            </div>
-        </div>
+
+    <div class="total-row">
+        <span>Total</span>
+        <span id="total-price">
+            RM 0.00
+        </span>
     </div>
+
+    <div style="display:flex;gap:10px;margin-top:15px;">
+
+        <button
+            onclick="downloadPDF()"
+            class="add-cart-btn">
+            Download PDF
+        </button>
+
+        <button
+            onclick="copyCart()"
+            class="add-cart-btn">
+            Copy
+        </button>
+
+    </div>
+
+</div>
     <!-- JS -->
     <!-- JS -->
 <script src="products.js"></script>
