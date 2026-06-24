@@ -263,12 +263,10 @@ header{
     z-index:9999;
     background:#fff;
 }
-
 .category-wrapper{
-    position:sticky;
-    top:72px;
-    z-index:9998;
-    background:#fff;
+    background:#ffffff;
+    padding-top:12px;
+    padding-bottom:12px;
 }
 
 .category-btn{
