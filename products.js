@@ -37,9 +37,9 @@ const products = [
     {
         id: 4,
         name: "Yoga Mat",
-        price: 19.99,
+        price: 388,
         category: "sports",
-        desc: "6mm Non Slip Yoga Mat",
+        desc: "200x100x20cm",
         image: "https://gw.alicdn.com/bao/uploaded/i1/2577160010/O1CN01UgTVl71Bwd0wmWynL_!!2577160010.jpg_.webp",
         colors: [
             { name: "Green", code: "#55855e" },
