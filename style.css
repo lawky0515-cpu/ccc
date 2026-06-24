@@ -258,15 +258,19 @@ body{
     display:none;
 }
 header{
-    position:fixed;
+    position:sticky;
     top:0;
     z-index:9999;
-    background:#ffffff;
+    background:#fff;
+}
+
+.category-wrapper{
+    position:sticky;
+    top:72px;
+    z-index:9998;
+    background:#fff;
 }
 
 .category-btn{
     flex-shrink:0;
-}
-main{
-    padding-top:140px;
 }
