@@ -24,14 +24,14 @@ const products = [
     },
     {
         id: 3,
-        name: "Basketball Size 7",
-        price: 29.99,
+        name: "Netball Size 5",
+        price: 138,
         category: "sports",
-        desc: "Official Match Basketball",
-        image: "https://picsum.photos/400/400?random=3",
+        desc: "Official Match Netball",
+        image: "https://gw.alicdn.com/bao/uploaded/i2/581510759/O1CN01o1YLZL1HTfTdeT4Kc_!!581510759.jpg",
         colors: [
             { name: "Orange", code: "#f97316" },
-            { name: "Black", code: "#000000" }
+            { name: "Pink", code: "#000000" }
         ]
     },
     {
