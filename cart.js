@@ -192,22 +192,22 @@ function renderCart() {
                         +
                     </button>
                     <button
-    onclick="removeItem(${index})"
-    style="
-    width:34px;
-    height:34px;
-    border:none;
-    border-radius:50%;
-    background:#ef4444;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    ">
-    <i class="fa-solid fa-trash"></i>
-</button>
+                       onclick="removeItem(${index})"
+                       style="
+                       width:34px;
+                       height:34px;
+                       border:none;
+                       border-radius:50%;
+                       background:#ef4444;
+                       color:white;
+                       font-size:16px;
+                       cursor:pointer;
+                       display:flex;
+                       align-items:center;
+                       justify-content:center;
+                       ">
+                       <i class="fa-solid fa-trash"></i>
+                       </button>
                 </div>
             </div>
             `;
