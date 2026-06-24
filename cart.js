@@ -45,29 +45,58 @@ function updateCartCount() {
 // Open Cart
 // ======================
 function toggleCart() {
+
     const modal =
         document.getElementById(
             "cart-modal"
         );
+
     if (!modal) return;
+
     modal.classList.toggle(
         "hidden"
     );
+
+    if (
+        modal.classList.contains(
+            "hidden"
+        )
+    ) {
+
+        document.body.style.overflow =
+            "auto";
+
+    } else {
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
     renderCart();
+
 }
 // ======================
 // Close Cart
 // ======================
 function closeCart() {
+
     const modal =
         document.getElementById(
             "cart-modal"
         );
+
     if (modal) {
+
         modal.classList.add(
             "hidden"
         );
+
+        document.body.style.overflow =
+            "auto";
+
     }
+
 }
 // ======================
 // Quantity +
