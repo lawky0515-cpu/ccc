@@ -264,17 +264,6 @@ header{
     background:#ffffff;
 }
 
-.category-wrapper{
-    position:sticky;
-    top:72px;
-    left:0;
-    width:100%;
-    z-index:9998;
-    background:#ffffff;
-    padding-top:12px;
-    padding-bottom:12px;
-}
-
 .category-btn{
     flex-shrink:0;
 }
