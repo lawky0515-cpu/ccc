@@ -272,3 +272,9 @@ header{
 .category-btn{
     flex-shrink:0;
 }
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    touch-action: none;
+}
