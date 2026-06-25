@@ -179,7 +179,7 @@ const products = [
             { name: "Black", code: "#000000" }
         ]
     }
-        {
+    {
         id: 17,
         name: "3d Pen",
         price: 52.00,
