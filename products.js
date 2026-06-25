@@ -138,7 +138,7 @@ const products = [
         price: 23,
         category: "trophy-medal",
         desc: "Resin Trophy",
-        image: "images/AGILITY HURDLES 03.png",
+        image: "images/RESIN TROPHY 03.png",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
