@@ -115,24 +115,24 @@ const products = [
     },
     {
         id: 11,
-        name: "STEM Building Blocks",
-        price: 35.00,
-        category: "stem",
-        desc: "Creative Engineering Kit",
+        name: "Football",
+        price: 120.00,
+        category: "sports",
+        desc: "Molten No.5",
         image: "https://picsum.photos/400/400?random=11",
         colors: [
-            { name: "Multicolor", code: "#10b981" }
+            { name: "Blue White", code: "#10b981" }
         ]
     },
     {
         id: 12,
-        name: "Science Experiment Kit",
-        price: 28.50,
+        name: "Water Rocket Set",
+        price: 58.50,
         category: "stem",
-        desc: "Physics & Chemistry Kit",
+        desc: "Rocket Launcher, rocket body set",
         image: "https://picsum.photos/400/400?random=12",
         colors: [
-            { name: "Blue", code: "#2563eb" }
+            { name: "Multicolour", code: "#2563eb" }
         ]
     },
     {
