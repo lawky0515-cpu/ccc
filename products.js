@@ -1,25 +1,24 @@
 const products = [
     {
         id: 1,
-        name: "Premium Notebook",
-        price: 12.99,
-        category: "stationery",
-        desc: "A5 Notebook 120 Pages",
-        image: "",
+        name: "Acrylc Marker",
+        price: 42.00,
+        category: "art",
+        desc: "24 colours",
+        image: "images/ACRYLIC MARKER.png",
         colors: [
-            { name: "Black", code: "#000000" },
-            { name: "Blue", code: "#3b82f6" }
+            { name: "24 colours", code: "#000000" }
         ]
     },
     {
         id: 2,
-        name: "DOUBLE A A4 Paper",
+        name: "A4 Clipboard",
         price: 14.00,
         category: "stationery",
-        desc: "500 Sheets Copy Paper",
-        image: "",
+        desc: "10 Pcs",
+        image: "images/CLIPBOARD.png",
         colors: [
-            { name: "White", code: "#ffffff" }
+            { name: "Black", code: "#ffffff" }
         ]
     },
     {
@@ -182,7 +181,7 @@ const products = [
         price: 52.00,
         category: "stem",
         desc: "Free 3 roll PLA fiments",
-        image: "",
+        image: "images/3D PEN.png",
         colors: [
             { name: "Blue", code: "#2563eb" }
         ]
@@ -211,7 +210,7 @@ const products = [
     },
     {
         id: 20,
-        name: "Large Whear Medal",
+        name: "Large Wheat Medal",
         price: 4.00,
         category: "trophy-medal",
         desc: "65mm x 4mm",
@@ -258,7 +257,7 @@ const products = [
     {
         id: 24,
         name: "Multipurpose Scoreboard",
-        price: 350.00,
+        price: 90.00,
         category: "sports",
         desc: "38.8cm x 19cm x 20cm",
         image: "images/BY SCOREBOARD.png",
