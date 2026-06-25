@@ -71,46 +71,46 @@ const products = [
     },
     {
         id: 7,
-        name: "Watercolor Paint Set",
-        price: 22.50,
-        category: "art",
-        desc: "24 Professional Colors",
+        name: "Agility Training",
+        price: 15.00,
+        category: "sports",
+        desc: "15cm",
         image: "https://picsum.photos/400/400?random=7",
         colors: [
-            { name: "Multicolor", code: "#8b5cf6" }
+            { name: "Red", code: "#8b5cf6" }
         ]
     },
     {
         id: 8,
-        name: "Sketchbook A5",
-        price: 15.99,
-        category: "art",
-        desc: "120gsm Drawing Paper",
+        name: "Marking Disc Set",
+        price: 50.00,
+        category: "sports",
+        desc: "Discx50 pieces, storage bag",
         image: "https://picsum.photos/400/400?random=8",
         colors: [
-            { name: "Black", code: "#000000" }
+            { name: "Multicolour", code: "#000000" }
         ]
     },
     {
         id: 9,
-        name: "Acoustic Guitar",
-        price: 129.99,
-        category: "music",
-        desc: "Beginner Guitar",
+        name: "Joinfit Strength Rubber",
+        price: 35.00,
+        category: "sports",
+        desc: "15-35 pounds",
         image: "https://picsum.photos/400/400?random=9",
         colors: [
-            { name: "Natural", code: "#d97706" }
+            { name: "Red", code: "#d97706" }
         ]
     },
     {
         id: 10,
-        name: "Ukulele",
-        price: 49.99,
-        category: "music",
-        desc: "Wooden Ukulele",
+        name: "Joinfit Strength Rubber",
+        price: 48.00,
+        category: "sports",
+        desc: "25-65 pounds",
         image: "https://picsum.photos/400/400?random=10",
         colors: [
-            { name: "Brown", code: "#92400e" }
+            { name: "black", code: "#92400e" }
         ]
     },
     {
