@@ -207,7 +207,7 @@ const products = [
         price: 43.00,
         category: "sports",
         desc: "15cm x 5",
-        image: "",
+        image: "images/AGILITY HURDLES.png",
         colors: [
             { name: "Blue", code: "#2563eb" }
         ]
