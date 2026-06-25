@@ -5,7 +5,7 @@ const products = [
         price: 12.99,
         category: "stationery",
         desc: "A5 Notebook 120 Pages",
-        image: "https://picsum.photos/400/400?random=1",
+        image: "",
         colors: [
             { name: "Black", code: "#000000" },
             { name: "Blue", code: "#3b82f6" }
@@ -17,7 +17,7 @@ const products = [
         price: 14.00,
         category: "stationery",
         desc: "500 Sheets Copy Paper",
-        image: "https://picsum.photos/400/400?random=2",
+        image: "",
         colors: [
             { name: "White", code: "#ffffff" }
         ]
@@ -28,22 +28,20 @@ const products = [
         price: 138,
         category: "Sports",
         desc: "Official Match Basketball",
-        image: "https://gw.alicdn.com/bao/uploaded/i2/581510759/O1CN01o1YLZL1HTfTdeT4Kc_!!581510759.jpg",
+        image: "images/PINK BASKETBALL S5.png",
         colors: [
-            { name: "Black", code: "#000000" },
-            { name: "Pink", code: "#000000" }
+            { name: "Black", code: "#000000" }
         ]
     },
     {
         id: 4,
-        name: "Yoga Mat",
+        name: "Folding Mattress",
         price: 388,
         category: "sports",
         desc: "200x100x20cm",
-        image: "https://gw.alicdn.com/bao/uploaded/i1/2577160010/O1CN01UgTVl71Bwd0wmWynL_!!2577160010.jpg_.webp",
+        image: "images/FOLDING MONEY.png",
         colors: [
-            { name: "Green", code: "#55855e" },
-            { name: "Black", code: "#000000" }
+            { name: "Green", code: "#55855e" }
         ]
     },
     {
@@ -52,7 +50,7 @@ const products = [
         price: 80.00,
         category: "sports",
         desc: "2 Paddles + 4 Balls",
-        image: "https://picsum.photos/400/400?random=5",
+        image: "",
         colors: [
             { name: "Yellow", code: "#eab308" }
         ]
@@ -63,10 +61,9 @@ const products = [
         price: 30.00,
         category: "sports",
         desc: "1 Bat + 2 Balls",
-        image: "https://picsum.photos/400/400?random=6",
+        image: "",
         colors: [
-            { name: "Red", code: "#ef4444" },
-            { name: "Blue", code: "#3b82f6" }
+            { name: "Red", code: "#ef4444" }
         ]
     },
     {
@@ -75,7 +72,7 @@ const products = [
         price: 15.00,
         category: "sports",
         desc: "15cm",
-        image: "https://picsum.photos/400/400?random=7",
+        image: "",
         colors: [
             { name: "Red", code: "#8b5cf6" }
         ]
@@ -83,10 +80,10 @@ const products = [
     {
         id: 8,
         name: "Marking Disc Set",
-        price: 50.00,
+        price: 14.00,
         category: "sports",
-        desc: "Discx50 pieces, storage bag",
-        image: "https://picsum.photos/400/400?random=8",
+        desc: "10 pieces, storage bag",
+        image: "images/MARKER.png",
         colors: [
             { name: "Multicolour", code: "#000000" }
         ]
@@ -97,7 +94,7 @@ const products = [
         price: 35.00,
         category: "sports",
         desc: "15-35 pounds",
-        image: "https://picsum.photos/400/400?random=9",
+        image: "",
         colors: [
             { name: "Red", code: "#d97706" }
         ]
@@ -108,7 +105,7 @@ const products = [
         price: 48.00,
         category: "sports",
         desc: "25-65 pounds",
-        image: "https://picsum.photos/400/400?random=10",
+        image: "",
         colors: [
             { name: "black", code: "#92400e" }
         ]
@@ -119,7 +116,7 @@ const products = [
         price: 120.00,
         category: "Sports",
         desc: "Molten No.5",
-        image: "https://picsum.photos/400/400?random=11",
+        image: "",
         colors: [
             { name: "Blue White", code: "#10b981" }
         ]
@@ -130,7 +127,7 @@ const products = [
         price: 58.50,
         category: "stem",
         desc: "Rocket Launcher, rocket body set",
-        image: "https://picsum.photos/400/400?random=12",
+        image: "",
         colors: [
             { name: "Multicolour", code: "#2563eb" }
         ]
@@ -141,7 +138,7 @@ const products = [
         price: 23,
         category: "trophy-medal",
         desc: "Premium Trophy Award",
-        image: "https://gw.alicdn.com/bao/uploaded/i1/2217540625539/O1CN01jojdjF1qmum36yECk_!!2217540625539.jpg_q30.jpg_.webp",
+        image: "",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
@@ -152,7 +149,7 @@ const products = [
         price: 23.00,
         category: "trophy-medal",
         desc: "Premium Trophy Award",
-        image: "https://gw.alicdn.com/bao/uploaded/i4/2217540625539/O1CN01446RIR1qmum8i8tup_!!2217540625539.jpg_q30.jpg_.webp",
+        image: "",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
@@ -163,7 +160,7 @@ const products = [
         price: 89.99,
         category: "camping",
         desc: "4 Person Waterproof Tent",
-        image: "https://picsum.photos/400/400?random=15",
+        image: "",
         colors: [
             { name: "Green", code: "#16a34a" }
         ]
@@ -174,7 +171,7 @@ const products = [
         price: 52.00,
         category: "camping",
         desc: "0.95kg lightweight Sleeping Bag",
-        image: "https://picsum.photos/400/400?random=16",
+        image: "",
         colors: [
             { name: "Black", code: "#000000" }
         ]
@@ -185,7 +182,7 @@ const products = [
         price: 52.00,
         category: "stem",
         desc: "Free 3 roll PLA fiments",
-        image: "https://picsum.photos/400/400?random=17",
+        image: "",
         colors: [
             { name: "Blue", code: "#2563eb" }
         ]
@@ -196,12 +193,12 @@ const products = [
         price: 58.00,
         category: "camping",
         desc: "2x1.25x1.1m",
-        image: "https://picsum.photos/400/400?random=18",
+        image: "",
         colors: [
             { name: "Green", code: "#2563eb" }
         ]
     },
-        {
+    {
         id: 19,
         name: "Agility Hurdles",
         price: 43.00,
@@ -212,7 +209,7 @@ const products = [
             { name: "Blue", code: "#2563eb" }
         ]
     },
-            {
+    {
         id: 20,
         name: "Large Whear Medal",
         price: 4.00,
@@ -225,4 +222,60 @@ const products = [
             { name: "Bronze", code: "#2563eb" }
         ]
     },
+    {
+        id: 21,
+        name: "Steel Scoreboard",
+        price: 78.00,
+        category: "sports",
+        desc: "36.5cmx13.5cmx23cm",
+        image: "images/RB SCOREBOARD.png",
+        colors: [
+            { name: "Red Blue", code: "#2563eb" }
+        ]
+    },
+    {
+        id: 22,
+        name: "Shuttlecocks Launcher",
+        price: 350.00,
+        category: "sports",
+        desc: "Free 6 Shuttlecocks",
+        image: "images/SC LAUNCHER.png",
+        colors: [
+            { name: "White", code: "#2563eb" }
+        ]
+    },
+    {
+        id: 23,
+        name: "Table Tennis Ball Launcher",
+        price: 95.00,
+        category: "sports",
+        desc: "Free 10 balls",
+        image: "images/TT LAUNCHER.png",
+        colors: [
+            { name: "White", code: "#2563eb" }
+        ]
+    },
+    {
+        id: 24,
+        name: "Multipurpose Scoreboard",
+        price: 350.00,
+        category: "sports",
+        desc: "38.8cm x 19cm x 20cm",
+        image: "images/BY SCOREBOARD.png",
+        colors: [
+            { name: "Black", code: "#2563eb" }
+        ]
+    },
+    {
+        id: 25,
+        name: "Shuttlecocks Launcher",
+        price: 350.00,
+        category: "sports",
+        desc: "Free 6 Shuttlecocks",
+        image: "images/SC LAUNCHER.png",
+        colors: [
+            { name: "White", code: "#2563eb" }
+        ]
+    },
+    
 ];
