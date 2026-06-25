@@ -26,11 +26,11 @@ const products = [
         id: 3,
         name: "Basketball Size 5",
         price: 138,
-        category: "Sports",
-        desc: "Official Match Basketball",
+        category: "sports",
+        desc: "PU Leather",
         image: "images/PINK BASKETBALL S5.png",
         colors: [
-            { name: "Black", code: "#000000" }
+            { name: "Pink", code: "#000000" }
         ]
     },
     {
@@ -134,22 +134,22 @@ const products = [
     },
     {
         id: 13,
-        name: "Gold Trophy",
+        name: "Gold Trophy 03",
         price: 23,
         category: "trophy-medal",
-        desc: "Premium Trophy Award",
-        image: "",
+        desc: "Resin Trophy",
+        image: "images/AGILITY HURDLES 03.png",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
     },
     {
         id: 14,
-        name: "Gold Trophy",
+        name: "Gold Trophy 26",
         price: 23.00,
         category: "trophy-medal",
         desc: "Premium Trophy Award",
-        image: "",
+        image: "images/RESIN TROPHY 26.png",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
@@ -160,7 +160,7 @@ const products = [
         price: 89.99,
         category: "camping",
         desc: "4 Person Waterproof Tent",
-        image: "",
+        image: "images/AGILITY HURDLES.png",
         colors: [
             { name: "Green", code: "#16a34a" }
         ]
@@ -277,5 +277,15 @@ const products = [
             { name: "White", code: "#2563eb" }
         ]
     },
-    
+    {
+        id: 26,
+        name: "Gold Trophy 30",
+        price: 23.00,
+        category: "trophy-medal",
+        desc: "Premium Trophy Award",
+        image: "images/RESIN TROPHY 30.png",
+        colors: [
+            { name: "Gold", code: "#eab308" }
+        ]
+    },
 ];
