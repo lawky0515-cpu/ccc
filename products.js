@@ -171,12 +171,34 @@ const products = [
     {
         id: 16,
         name: "Sleeping Bag",
-        price: 39.99,
+        price: 52.00,
         category: "camping",
-        desc: "Lightweight Sleeping Bag",
+        desc: "0.95kg lightweight Sleeping Bag",
+        image: "https://picsum.photos/400/400?random=16",
+        colors: [
+            { name: "Black", code: "#000000" }
+        ]
+    }
+        {
+        id: 17,
+        name: "3d Pen",
+        price: 52.00,
+        category: "STEM",
+        desc: "Free 3 roll PLA fiments",
         image: "https://picsum.photos/400/400?random=16",
         colors: [
             { name: "Blue", code: "#2563eb" }
+        ]
+    }
+    {
+        id: 18,
+        name: "Camping tent",
+        price: 58.00,
+        category: "camping",
+        desc: "2x1.25x1.1m",
+        image: "https://picsum.photos/400/400?random=16",
+        colors: [
+            { name: "Green", code: "#2563eb" }
         ]
     }
 ];
