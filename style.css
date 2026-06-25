@@ -7,8 +7,7 @@ body{
 }
 body{
     font-family: Arial, sans-serif;
-    background:#000;
-    color:#fff;
+    background:#f8fafc;
     margin:0;
     padding:0;
 }
@@ -58,14 +57,9 @@ body{
 .search-box{
     width:100%;
     padding:12px 12px 12px 40px;
-    border:1px solid #333;
+    border:1px solid #d1d5db;
     border-radius:999px;
     outline:none;
-    background:#1a1a1a;
-    color:#fff;
-}
-.search-box::placeholder{
-    color:#888;
 }
 .search-box:focus{
     border-color:#4f46e5;
@@ -107,16 +101,14 @@ body{
 }
 .category-btn{
     border:none;
-    background:#222;
-    color:#fff;
-    border:1px solid #333;
+    background:#e5e7eb;
     padding:8px 18px;
     border-radius:999px;
     cursor:pointer;
 }
 .category-btn.active{
     background:#4f46e5;
-    color:fff;
+    color:white;
 }
 /* ===== View Buttons ===== */
 .view-btn{
@@ -128,10 +120,10 @@ body{
 }
 /* ===== Product Card ===== */
 .product-card{
-    background:#111;
-    color:#fff;
-    border:1px solid #333;
+    background:white;
+    border-radius:20px;
     overflow:hidden;
+    border:2px solid #f1f5f9;
     transition:.3s;
 }
 .product-card:hover{
@@ -140,7 +132,7 @@ body{
 }
 .product-image-container{
     height:200px;
-    background:#181818;
+    background:#f8fafc;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -185,8 +177,7 @@ body{
 .detail-modal{
     width:90%;
     max-width:650px;
-    background:#111;
-    color:#fff;
+    background:white;
     border-radius:20px;
     overflow:hidden;
 }
@@ -195,7 +186,7 @@ body{
     justify-content:space-between;
     align-items:center;
     padding:20px;
-    border-bottom:1px solid #333;
+    border-bottom:1px solid #e5e7eb;
 }
 .modal-header button{
     border:none;
@@ -210,7 +201,7 @@ body{
 }
 .cart-footer{
     padding:20px;
-    border-top:1px solid #333;
+    border-top:1px solid #e5e7eb;
 }
 .total-row{
     display:flex;
@@ -270,11 +261,10 @@ header{
     position:sticky;
     top:0;
     z-index:9999;
-    background:#111;
-    color:#fff;
+    background:#fff;
 }
 .category-wrapper{
-    background:#111;
+    background:#ffffff;
     padding-top:12px;
     padding-bottom:12px;
 }
