@@ -201,4 +201,15 @@ const products = [
             { name: "Green", code: "#2563eb" }
         ]
     },
+        {
+        id: 19,
+        name: "Agility Hurdles",
+        price: 43.00,
+        category: "sports",
+        desc: "15cm x 5",
+        image: "",
+        colors: [
+            { name: "Blue", code: "#2563eb" }
+        ]
+    },
 ];
