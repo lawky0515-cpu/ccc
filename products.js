@@ -3,7 +3,7 @@ const products = [
         id: 1,
         name: "Premium Notebook",
         price: 12.99,
-        category: "Stationery",
+        category: "stationery",
         desc: "A5 Notebook 120 Pages",
         image: "https://picsum.photos/400/400?random=1",
         colors: [
@@ -15,7 +15,7 @@ const products = [
         id: 2,
         name: "DOUBLE A A4 Paper",
         price: 14.00,
-        category: "Stationery",
+        category: "stationery",
         desc: "500 Sheets Copy Paper",
         image: "https://picsum.photos/400/400?random=2",
         colors: [
@@ -38,7 +38,7 @@ const products = [
         id: 4,
         name: "Yoga Mat",
         price: 388,
-        category: "Sports",
+        category: "sports",
         desc: "200x100x20cm",
         image: "https://gw.alicdn.com/bao/uploaded/i1/2577160010/O1CN01UgTVl71Bwd0wmWynL_!!2577160010.jpg_.webp",
         colors: [
@@ -50,7 +50,7 @@ const products = [
         id: 5,
         name: "Pickle Ball Set",
         price: 80.00,
-        category: "Sports",
+        category: "sports",
         desc: "2 Paddles + 4 Balls",
         image: "https://picsum.photos/400/400?random=5",
         colors: [
@@ -61,7 +61,7 @@ const products = [
         id: 6,
         name: "Table Tennis Set",
         price: 30.00,
-        category: "Sports",
+        category: "sports",
         desc: "1 Bat + 2 Balls",
         image: "https://picsum.photos/400/400?random=6",
         colors: [
@@ -73,7 +73,7 @@ const products = [
         id: 7,
         name: "Agility Training",
         price: 15.00,
-        category: "Sports",
+        category: "sports",
         desc: "15cm",
         image: "https://picsum.photos/400/400?random=7",
         colors: [
@@ -84,7 +84,7 @@ const products = [
         id: 8,
         name: "Marking Disc Set",
         price: 50.00,
-        category: "Sports",
+        category: "sports",
         desc: "Discx50 pieces, storage bag",
         image: "https://picsum.photos/400/400?random=8",
         colors: [
@@ -95,7 +95,7 @@ const products = [
         id: 9,
         name: "Joinfit Strength Rubber",
         price: 35.00,
-        category: "Sports",
+        category: "sports",
         desc: "15-35 pounds",
         image: "https://picsum.photos/400/400?random=9",
         colors: [
@@ -106,7 +106,7 @@ const products = [
         id: 10,
         name: "Joinfit Strength Rubber",
         price: 48.00,
-        category: "Sports",
+        category: "sports",
         desc: "25-65 pounds",
         image: "https://picsum.photos/400/400?random=10",
         colors: [
@@ -128,7 +128,7 @@ const products = [
         id: 12,
         name: "Water Rocket Set",
         price: 58.50,
-        category: "STEM",
+        category: "stem",
         desc: "Rocket Launcher, rocket body set",
         image: "https://picsum.photos/400/400?random=12",
         colors: [
@@ -139,7 +139,7 @@ const products = [
         id: 13,
         name: "Gold Trophy",
         price: 23,
-        category: "Trophy-medal",
+        category: "trophy-medal",
         desc: "Premium Trophy Award",
         image: "https://gw.alicdn.com/bao/uploaded/i1/2217540625539/O1CN01jojdjF1qmum36yECk_!!2217540625539.jpg_q30.jpg_.webp",
         colors: [
@@ -150,7 +150,7 @@ const products = [
         id: 14,
         name: "Gold Trophy",
         price: 23.00,
-        category: "Trophy-medal",
+        category: "trophy-medal",
         desc: "Premium Trophy Award",
         image: "https://gw.alicdn.com/bao/uploaded/i4/2217540625539/O1CN01446RIR1qmum8i8tup_!!2217540625539.jpg_q30.jpg_.webp",
         colors: [
@@ -161,7 +161,7 @@ const products = [
         id: 15,
         name: "Camping Tent",
         price: 89.99,
-        category: "Camping",
+        category: "camping",
         desc: "4 Person Waterproof Tent",
         image: "https://picsum.photos/400/400?random=15",
         colors: [
@@ -172,7 +172,7 @@ const products = [
         id: 16,
         name: "Sleeping Bag",
         price: 52.00,
-        category: "Camping",
+        category: "camping",
         desc: "0.95kg lightweight Sleeping Bag",
         image: "https://picsum.photos/400/400?random=16",
         colors: [
@@ -183,7 +183,7 @@ const products = [
         id: 17,
         name: "3d Pen",
         price: 52.00,
-        category: "STEM",
+        category: "stem",
         desc: "Free 3 roll PLA fiments",
         image: "https://picsum.photos/400/400?random=17",
         colors: [
@@ -192,9 +192,9 @@ const products = [
     },
     {
         id: 18,
-        name: "Camping tent",
+        name: "camping tent",
         price: 58.00,
-        category: "Camping",
+        category: "camping",
         desc: "2x1.25x1.1m",
         image: "https://picsum.photos/400/400?random=18",
         colors: [
