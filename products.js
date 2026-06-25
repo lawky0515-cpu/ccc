@@ -194,7 +194,7 @@ const products = [
         id: 18,
         name: "Camping tent",
         price: 58.00,
-        category: "camping",
+        category: "Camping",
         desc: "2x1.25x1.1m",
         image: "https://picsum.photos/400/400?random=16",
         colors: [
