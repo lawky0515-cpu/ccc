@@ -178,27 +178,27 @@ const products = [
         colors: [
             { name: "Black", code: "#000000" }
         ]
-    }
+    },
     {
         id: 17,
         name: "3d Pen",
         price: 52.00,
         category: "STEM",
         desc: "Free 3 roll PLA fiments",
-        image: "https://picsum.photos/400/400?random=16",
+        image: "https://picsum.photos/400/400?random=17",
         colors: [
             { name: "Blue", code: "#2563eb" }
         ]
-    }
+    },
     {
         id: 18,
         name: "Camping tent",
         price: 58.00,
         category: "Camping",
         desc: "2x1.25x1.1m",
-        image: "https://picsum.photos/400/400?random=16",
+        image: "https://picsum.photos/400/400?random=18",
         colors: [
             { name: "Green", code: "#2563eb" }
         ]
-    }
+    },
 ];
