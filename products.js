@@ -212,4 +212,17 @@ const products = [
             { name: "Blue", code: "#2563eb" }
         ]
     },
+            {
+        id: 20,
+        name: "Large Whear Medal",
+        price: 4.00,
+        category: "trophy-medal",
+        desc: "65mm x 4mm",
+        image: "images/LARGE WHEAR MEDAL.png",
+        colors: [
+            { name: "Gold", code: "#2563eb" },
+            { name: "Silver", code: "#2563eb" },
+            { name: "Bronze", code: "#2563eb" }
+        ]
+    },
 ];
