@@ -127,7 +127,7 @@ const products = [
         price: 58.50,
         category: "stem",
         desc: "Rocket Launcher, rocket body set",
-        image: "",
+        image: "images/WATER ROCKET.png",
         colors: [
             { name: "Multicolour", code: "#2563eb" }
         ]
@@ -171,7 +171,7 @@ const products = [
         price: 52.00,
         category: "camping",
         desc: "0.95kg lightweight Sleeping Bag",
-        image: "",
+        image: "images/SLEEPING BAG.png",
         colors: [
             { name: "Black", code: "#000000" }
         ]
