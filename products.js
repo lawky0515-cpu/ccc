@@ -13,7 +13,7 @@ const products = [
     {
         id: 2,
         name: "A4 Clipboard",
-        price: 14.00,
+        price: 40.00,
         category: "stationery",
         desc: "10 Pcs",
         image: "images/CLIPBOARD.png",
