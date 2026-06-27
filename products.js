@@ -287,4 +287,37 @@ const products = [
             { name: "Gold", code: "#eab308" }
         ]
     },
+    {
+        id: 27,
+        name: "Micro bit",
+        price: 80.00,
+        category: "stem",
+        desc: "BBC micro bit",
+        image: "jpg/STEM MB.jpg",
+        colors: [
+            { name: "Multicolor", code: "#eab308" }
+        ]
+    },
+    {
+        id: 28,
+        name: "Micro Bit Set",
+        price: 280.00,
+        category: "stem",
+        desc: "Starter Kit",
+        image: "jpg/STEM MBSK.jpg",
+        colors: [
+            { name: "Multicolor", code: "#eab308" }
+        ]
+    },
+    {
+        id: 29,
+        name: "Percussion Set",
+        price: 52.00,
+        category: "music",
+        desc: "in set of 5 percussion",
+        image: "jpg/PS.jpg",
+        colors: [
+            { name: "Multicolor", code: "#eab308" }
+        ]
+    },
 ];
