@@ -21,8 +21,8 @@ function renderProducts(productList = products) {
                     alt="${product.name}">
             </div>
             <div class="product-info">
-                <h3 class="font-bold">
-                    ${product.name}
+                <h3 class="text-xl font-bold">
+                ${product.name}
                 </h3>
                 <p>
                     ${product.desc}
