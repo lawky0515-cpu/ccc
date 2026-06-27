@@ -5,7 +5,7 @@ const products = [
         price: 42.00,
         category: "art",
         desc: "24 colours",
-        image: "images/ACRYLIC MARKER.png",
+        image: "jpg/ACRYLIC MARKER.jpg",
         colors: [
             { name: "24 colours", code: "#000000" }
         ]
@@ -16,7 +16,7 @@ const products = [
         price: 40.00,
         category: "stationery",
         desc: "10 Pcs",
-        image: "images/CLIPBOARD.png",
+        image: "jpg/CLIPBOARD.jpg",
         colors: [
             { name: "Black", code: "#ffffff" }
         ]
@@ -27,7 +27,7 @@ const products = [
         price: 138,
         category: "sports",
         desc: "PU Leather",
-        image: "images/PINK BASKETBALL S5.png",
+        image: "jpg/PINK BASKETBALL S5.jpg",
         colors: [
             { name: "Pink", code: "#000000" }
         ]
@@ -38,7 +38,7 @@ const products = [
         price: 388,
         category: "sports",
         desc: "200x100x20cm",
-        image: "images/FOLDING MONEY.png",
+        image: "jpg/FOLDING MONEY.jpg",
         colors: [
             { name: "Green", code: "#55855e" }
         ]
@@ -48,10 +48,10 @@ const products = [
         name: "Pickle Ball Set",
         price: 80.00,
         category: "sports",
-        desc: "2 Paddles + 4 Balls",
-        image: "",
+        desc: "Free 2 Balls",
+        image: "jpg/PB.jpg",
         colors: [
-            { name: "Yellow", code: "#eab308" }
+            { name: "Black", code: "#eab308" }
         ]
     },
     {
@@ -59,19 +59,19 @@ const products = [
         name: "Table Tennis Set",
         price: 30.00,
         category: "sports",
-        desc: "1 Bat + 2 Balls",
-        image: "",
+        desc: "2 Bats + 3 Balls",
+        image: "jpg/TTR 2.jpg",
         colors: [
             { name: "Red", code: "#ef4444" }
         ]
     },
     {
         id: 7,
-        name: "Agility Training",
+        name: "Table Tennis Set DF",
         price: 15.00,
         category: "sports",
-        desc: "15cm",
-        image: "",
+        desc: "2 Bats + 6 Balls",
+        image: "jpg/TTR DF.jpg",
         colors: [
             { name: "Red", code: "#8b5cf6" }
         ]
@@ -82,7 +82,7 @@ const products = [
         price: 14.00,
         category: "sports",
         desc: "10 pieces, storage bag",
-        image: "images/MARKER.png",
+        image: "jpg/MARKER.jpg",
         colors: [
             { name: "Multicolour", code: "#000000" }
         ]
@@ -93,7 +93,7 @@ const products = [
         price: 35.00,
         category: "sports",
         desc: "15-35 pounds",
-        image: "",
+        image: "jpg/JF PB 15-35.jpg",
         colors: [
             { name: "Red", code: "#d97706" }
         ]
@@ -104,7 +104,7 @@ const products = [
         price: 48.00,
         category: "sports",
         desc: "25-65 pounds",
-        image: "",
+        image: "jpg/JF PB 25-65.jpg",
         colors: [
             { name: "black", code: "#92400e" }
         ]
@@ -114,10 +114,10 @@ const products = [
         name: "Football",
         price: 120.00,
         category: "Sports",
-        desc: "Molten No.5",
-        image: "",
+        desc: "Molten No.4",
+        image: "jpg/SOCCER NO 4.jpg",
         colors: [
-            { name: "Blue White", code: "#10b981" }
+            { name: "Blue", code: "#10b981" }
         ]
     },
     {
@@ -126,7 +126,7 @@ const products = [
         price: 58.50,
         category: "stem",
         desc: "Rocket Launcher, rocket body set",
-        image: "images/WATER ROCKET.png",
+        image: "jpg/WATER ROCKET.jpg",
         colors: [
             { name: "Multicolour", code: "#2563eb" }
         ]
@@ -137,7 +137,7 @@ const products = [
         price: 23,
         category: "trophy-medal",
         desc: "Resin Trophy",
-        image: "images/RESIN TROPHY 03.png",
+        image: "jpg/RESIN TROPHY 03.jpg",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
@@ -148,7 +148,7 @@ const products = [
         price: 23.00,
         category: "trophy-medal",
         desc: "Premium Trophy Award",
-        image: "images/RESIN TROPHY 26.png",
+        image: "jpg/RESIN TROPHY 26.jpg",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
@@ -156,10 +156,10 @@ const products = [
     {
         id: 15,
         name: "Camping Tent",
-        price: 89.99,
+        price: 100.00,
         category: "camping",
-        desc: "4 Person Waterproof Tent",
-        image: "images/AGILITY HURDLES.png",
+        desc: "2x1.8x1.2m",
+        image: "jpg/CP2.jpg",
         colors: [
             { name: "Green", code: "#16a34a" }
         ]
@@ -170,7 +170,7 @@ const products = [
         price: 52.00,
         category: "camping",
         desc: "0.95kg lightweight Sleeping Bag",
-        image: "images/SLEEPING BAG.png",
+        image: "jpg/SLEEPING BAG.jpg",
         colors: [
             { name: "Black", code: "#000000" }
         ]
@@ -181,18 +181,18 @@ const products = [
         price: 52.00,
         category: "stem",
         desc: "Free 3 roll PLA fiments",
-        image: "images/3D PEN.png",
+        image: "jpg/3D PEN.jpg",
         colors: [
             { name: "Blue", code: "#2563eb" }
         ]
     },
     {
         id: 18,
-        name: "camping tent",
+        name: "Camping Tent",
         price: 58.00,
         category: "camping",
         desc: "2x1.25x1.1m",
-        image: "",
+        image: "jpg/CP1.jpg",
         colors: [
             { name: "Green", code: "#2563eb" }
         ]
@@ -203,7 +203,7 @@ const products = [
         price: 43.00,
         category: "sports",
         desc: "15cm x 5",
-        image: "images/AGILITY HURDLES.png",
+        image: "jpg/AGILITY HURDLES.jpg",
         colors: [
             { name: "Blue", code: "#2563eb" }
         ]
@@ -214,7 +214,7 @@ const products = [
         price: 4.00,
         category: "trophy-medal",
         desc: "65mm x 4mm",
-        image: "images/LARGE WHEAR MEDAL.png",
+        image: "jpg/LARGE WHEAR MEDAL.jpg",
         colors: [
             { name: "Gold", code: "#2563eb" },
             { name: "Silver", code: "#2563eb" },
@@ -227,7 +227,7 @@ const products = [
         price: 78.00,
         category: "sports",
         desc: "36.5cmx13.5cmx23cm",
-        image: "images/RB SCOREBOARD.png",
+        image: "jpg/RB SCOREBOARD.jpg",
         colors: [
             { name: "Red Blue", code: "#2563eb" }
         ]
@@ -238,7 +238,7 @@ const products = [
         price: 350.00,
         category: "sports",
         desc: "Free 6 Shuttlecocks",
-        image: "images/SC LAUNCHER.png",
+        image: "jpg/SC LAUNCHER.jpg",
         colors: [
             { name: "White", code: "#2563eb" }
         ]
@@ -249,7 +249,7 @@ const products = [
         price: 95.00,
         category: "sports",
         desc: "Free 10 balls",
-        image: "images/TT LAUNCHER.png",
+        image: "jpg/TT LAUNCHER.jpg",
         colors: [
             { name: "White", code: "#2563eb" }
         ]
@@ -260,7 +260,7 @@ const products = [
         price: 90.00,
         category: "sports",
         desc: "38.8cm x 19cm x 20cm",
-        image: "images/BY SCOREBOARD.png",
+        image: "jpg/BY SCOREBOARD.jpg",
         colors: [
             { name: "Black", code: "#2563eb" }
         ]
@@ -271,7 +271,7 @@ const products = [
         price: 350.00,
         category: "sports",
         desc: "Free 6 Shuttlecocks",
-        image: "images/SC LAUNCHER.png",
+        image: "jpg/BY SCOREBOARD.jpg",
         colors: [
             { name: "White", code: "#2563eb" }
         ]
@@ -282,7 +282,7 @@ const products = [
         price: 23.00,
         category: "trophy-medal",
         desc: "Premium Trophy Award",
-        image: "images/RESIN TROPHY 30.png",
+        image: "jpg/RESIN TROPHY 30.jpg",
         colors: [
             { name: "Gold", code: "#eab308" }
         ]
