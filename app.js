@@ -164,7 +164,9 @@ window.changeDetailQty = function(delta){
 // Add To Cart
 window.addCurrentToCart = function(){
 
+
     if(!currentProduct) return;
+
 
     addToCart(
         currentProduct.id,
@@ -172,60 +174,80 @@ window.addCurrentToCart = function(){
         detailQty
     );
 
+
     showToast(
         "Successfully Added To Cart"
     );
 
+
     closeDetail();
+
 
 };
 // search
 let currentCategory = "all";
 
+
 window.filterCategory = function(category){
 
+
     currentCategory = category;
+
 
     const buttons =
         document.querySelectorAll(
             ".category-btn"
         );
 
+
     buttons.forEach(btn => {
+
 
         btn.classList.remove(
             "active"
         );
 
+
     });
+
 
     const activeBtn =
         document.getElementById(
             "cat-" + category
         );
 
+
     if(activeBtn){
+
 
         activeBtn.classList.add(
             "active"
         );
 
+
     }
+
 
     renderProducts(
         products.filter(product =>
 
+
             category === "all"
+
 
             ||
 
+
             product.category === category
+
 
         )
     );
 
+
 };
 function applyFilters(){
+
 
     const keyword =
         document
@@ -233,69 +255,218 @@ function applyFilters(){
         .value
         .toLowerCase();
 
+
     let filtered = products;
 
+
     if(currentCategory !== "all"){
+
 
         filtered = filtered.filter(
             product =>
             product.category === currentCategory
         );
 
+
     }
+
 
     if(keyword){
 
+
         filtered = filtered.filter(product =>
+
 
             product.name
                 .toLowerCase()
                 .includes(keyword)
 
+
             ||
+
 
             product.desc
                 .toLowerCase()
                 .includes(keyword)
 
+
         );
+
 
     }
 
+
     renderProducts(filtered);
+
 
 }
 function filterProducts(){
 
+
     applyFilters();
+
 
 }
 
+
 window.onload = function(){
 
+
     filterCategory("all");
+    initBanner();
+    initStickyTop();
+
 
     const searchInput =
         document.getElementById(
             "search-input"
         );
 
+
     if(searchInput){
+
 
         searchInput.addEventListener(
             "keyup",
             filterProducts
         );
 
+
     }
 
+
 };
+
+function initBanner(){
+
+
+    const track =
+        document.getElementById(
+            "banner-track"
+        );
+
+
+    if(!track) return;
+
+
+    const leftBtn =
+        document.querySelector(
+            ".banner-arrow-left"
+        );
+
+
+    const rightBtn =
+        document.querySelector(
+            ".banner-arrow-right"
+        );
+
+
+    function moveBanner(direction){
+
+
+        const amount =
+            track.clientWidth *
+            direction;
+
+
+        track.scrollBy({
+            left: amount,
+            behavior: "smooth"
+        });
+
+
+    }
+
+
+    if(leftBtn){
+        leftBtn.addEventListener(
+            "click",
+            function(){
+                moveBanner(-1);
+            }
+        );
+    }
+
+
+    if(rightBtn){
+        rightBtn.addEventListener(
+            "click",
+            function(){
+                moveBanner(1);
+            }
+        );
+    }
+
+
+}
+
+function initStickyTop(){
+
+
+    const header =
+        document.querySelector("header");
+    const category =
+        document.querySelector(".category-wrapper");
+
+
+    if(!header) return;
+
+
+    function updateTopBar(){
+
+
+        document.documentElement.style.setProperty(
+            "--header-height",
+            header.offsetHeight + "px"
+        );
+        document.documentElement.style.setProperty(
+            "--fixed-top-height",
+            (
+                header.offsetHeight +
+                (category ? category.offsetHeight : 0)
+            ) + "px"
+        );
+
+
+        if(window.scrollY > 24){
+            document.body.classList.add(
+                "page-scrolled"
+            );
+        }else if(window.scrollY <= 0){
+            document.body.classList.remove(
+                "page-scrolled"
+            );
+        }
+
+
+    }
+
+
+    updateTopBar();
+
+
+    window.addEventListener(
+        "scroll",
+        updateTopBar
+    );
+
+
+    window.addEventListener(
+        "resize",
+        updateTopBar
+    );
+
+
+}
 function showToast(message){
+
 
     const toast =
         document.createElement("div");
 
+
     toast.textContent = message;
+
 
     toast.style.position = "fixed";
     toast.style.top = "50%";
@@ -303,37 +474,50 @@ function showToast(message){
     toast.style.transform =
         "translate(-50%, -50%)";
 
+
     toast.style.background =
         "rgba(0,0,0,0.9)";
 
+
     toast.style.color = "#fff";
+
 
     toast.style.padding =
         "14px 28px";
 
+
     toast.style.borderRadius =
         "12px";
+
 
     toast.style.fontSize =
         "16px";
 
+
     toast.style.fontWeight =
         "600";
+
 
     toast.style.zIndex =
         "99999";
 
+
     toast.style.whiteSpace =
         "nowrap";
+
 
     document.body.appendChild(
         toast
     );
 
+
     setTimeout(function(){
+
 
         toast.remove();
 
+
     },2000);
+
 
 }
