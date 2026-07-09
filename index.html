@@ -20,14 +20,26 @@
 <body class="bg-gray-50">
 <!-- Banner -->
 <section class="banner">
-    <div class="banner-content">
-        <h1>CCC Stationery</h1>
-        <p>Back To School Sale</p>
-        <span>Up To 20% OFF</span>
+    <button class="banner-arrow banner-arrow-left" type="button" aria-label="Previous banner">
+        &lsaquo;
+    </button>
+    <div class="banner-track" id="banner-track">
+        <div class="banner-slide">
+            <img src="jpg/ACRYLIC MARKER.jpg" alt="Acrylic marker promotion">
+        </div>
+        <div class="banner-slide">
+            <img src="jpg/PINK BASKETBALL S5.jpg" alt="Basketball promotion">
+        </div>
+        <div class="banner-slide">
+            <img src="jpg/STEM MB.jpg" alt="STEM product promotion">
+        </div>
     </div>
+    <button class="banner-arrow banner-arrow-right" type="button" aria-label="Next banner">
+        &rsaquo;
+    </button>
 </section>
 <!-- Header -->
-<header class="bg-white shadow sticky top-0 z-50">
+<header class="bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 py-4">
         <div class="flex items-center justify-between gap-3">
             <div class="logo">
@@ -120,7 +132,7 @@
         </h2>
         <div
             id="products-container"
-            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            class="products-grid">
         </div>
     </main>
     <!-- Product Detail Modal -->
@@ -213,6 +225,7 @@
             </div>
             <div class="cart-footer">
 
+
     <div class="total-row">
         <span>Total</span>
         <span id="total-price">
@@ -220,7 +233,9 @@
         </span>
     </div>
 
+
     <div style="display:flex;gap:10px;margin-top:15px;">
+
 
         <button
             onclick="downloadPDF()"
@@ -228,13 +243,16 @@
             Download PDF
         </button>
 
+
         <button
             onclick="copyCart()"
             class="add-cart-btn">
             Copy
         </button>
 
+
     </div>
+
 
 </div>
     <!-- JS -->
