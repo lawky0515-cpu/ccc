@@ -15,18 +15,18 @@ body::-webkit-scrollbar{
 }
 body{
     font-family: Arial, sans-serif;
-    background:#f8fafc;
+    background:#e5e7eb;
     margin:0;
-    padding:0;
+    padding:0 0 56px;
 }
 .hidden{
     display:none;
 }
 /* ===== Banner ===== */
 .banner{
-    height:220px;
+    height:110px;
     width:100%;
-    background:#111827;
+    background:#000000;
     position:relative;
     overflow:hidden;
     transition:opacity .18s ease, transform .18s ease;
@@ -39,7 +39,7 @@ body.page-scrolled .banner{
 }
 
 .banner-track{
-    height:220px;
+    height:110px;
     display:flex;
     overflow-x:auto;
     overflow-y:hidden;
@@ -57,20 +57,22 @@ body.page-scrolled .banner{
 .banner-slide{
     flex:0 0 100%;
     width:100%;
-    height:220px;
+    height:110px;
     scroll-snap-align:start;
-    background:#ffffff;
+    background:#000000;
 }
 
 .banner-slide img{
     width:100%;
-    height:220px;
+    height:110px;
     object-fit:contain;
     object-position:center;
+    background:#000000;
     display:block;
 }
 
 .banner-arrow{
+    display:none !important;
     position:absolute;
     top:50%;
     z-index:2;
@@ -106,22 +108,115 @@ body.page-scrolled .banner{
     font-weight:bold;
     color:#4f46e5;
 }
+
+.logo-eye{
+    display:inline-flex;
+    width:.9em;
+    height:.9em;
+    margin:0 .02em;
+    border:2px solid currentColor;
+    border-radius:50%;
+    align-items:center;
+    justify-content:center;
+    color:transparent;
+    position:relative;
+    vertical-align:.24em;
+    box-sizing:border-box;
+}
+
+.logo-eye::before{
+    content:"";
+    width:.28em;
+    height:.28em;
+    border-radius:50%;
+    background:#4f46e5;
+    transform-origin:center;
+    animation:logoBlink 3.2s infinite;
+}
+
+.logo-eye:nth-of-type(1)::after{
+    content:"";
+    position:absolute;
+    left:100%;
+    top:50%;
+    width:.24em;
+    height:2px;
+    background:#4f46e5;
+    transform:translateY(-50%);
+}
+
+@keyframes logoBlink{
+    0%, 88%, 100%{
+        transform:scaleY(1);
+    }
+    92%, 95%{
+        transform:scaleY(.08);
+    }
+}
 /* ===== Search ===== */
+.search-wrapper{
+    background:#fff;
+    padding:10px 12px 12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.search-wrapper .relative{
+    overflow:hidden;
+    border-radius:999px;
+}
 .search-box{
     width:100%;
     padding:12px 12px 12px 40px;
-    border:1px solid #d1d5db;
+    border:2px solid #4f46e5;
     border-radius:999px;
     outline:none;
+    background:#ffffff;
+    color:#111827;
 }
 .search-box:focus{
-    border-color:#4f46e5;
+    border-color:#4338ca;
+    background:#ffffff;
+    box-shadow:0 0 0 3px rgba(79,70,229,.14);
+}
+.search-box::placeholder{
+    color:transparent;
 }
 .search-icon{
     position:absolute;
     left:14px;
     top:13px;
     color:#9ca3af;
+}
+.virtual-search-text{
+    position:absolute;
+    left:40px;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#6b7280;
+    pointer-events:none;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:16px;
+}
+
+.virtual-search-text.scroll-up{
+    animation:virtualSearchUp .38s ease;
+}
+
+.virtual-search-text.hidden-text{
+    display:none;
+}
+
+@keyframes virtualSearchUp{
+    0%{
+        opacity:0;
+        transform:translateY(70%);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(-50%);
+    }
 }
 /* ===== Cart ===== */
 .cart-btn{
@@ -292,7 +387,7 @@ body.page-scrolled .banner{
 /* ===== Detail Modal ===== */
 #detail-image{
     height:300px;
-    background:#f8fafc;
+    background:#000000;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -301,6 +396,7 @@ body.page-scrolled .banner{
     max-width:100%;
     max-height:100%;
     object-fit:contain;
+    background:#000000;
 }
 .add-cart-btn{
     width:100%;
@@ -378,6 +474,16 @@ body.page-scrolled .category-wrapper{
     box-shadow:0 3px 8px rgba(0,0,0,.08);
 }
 
+body.page-scrolled .search-wrapper{
+    position:fixed;
+    top:calc(var(--header-height, 80px) + var(--category-height, 58px) - 1px);
+    left:0;
+    right:0;
+    width:100%;
+    z-index:9997;
+    background:#fff;
+}
+
 body.page-scrolled main{
     padding-top:calc(var(--fixed-top-height, 150px) + 24px) !important;
 }
@@ -394,53 +500,545 @@ body.page-scrolled main{
     z-index:20000;
 }
 
+#product-detail-modal{
+    padding:24px 14px !important;
+    align-items:center !important;
+}
+
+#product-detail-modal .detail-modal{
+    width:min(92vw, 420px) !important;
+    max-height:92vh !important;
+    border-radius:14px !important;
+    overflow:hidden !important;
+}
+
+#product-detail-modal .detail-body{
+    max-height:calc(92vh - 52px) !important;
+    overflow-y:auto !important;
+}
+
+#product-detail-modal .modal-header{
+    padding:10px 14px !important;
+}
+
+#detail-name{
+    font-weight:800 !important;
+    font-size:18px !important;
+    line-height:1.15 !important;
+}
+
+#detail-image{
+    height:280px !important;
+}
+
+#product-detail-modal .detail-body > .p-5{
+    padding:10px 12px 12px !important;
+}
+
+#detail-desc{
+    font-size:14px !important;
+    line-height:1.25 !important;
+    margin:0 !important;
+}
+
+#detail-price{
+    margin-top:6px !important;
+    font-size:20px !important;
+    line-height:1.15 !important;
+}
+
+#product-detail-modal h4{
+    font-size:14px !important;
+    line-height:1.1 !important;
+    margin:0 !important;
+}
+
+#product-detail-modal #detail-price + div,
+#product-detail-modal #detail-price + div + div{
+    margin-top:10px !important;
+}
+
+#color-options{
+    gap:6px !important;
+    margin-top:5px !important;
+}
+
+#color-options button{
+    padding:5px 10px !important;
+    font-size:13px !important;
+}
+
+#product-detail-modal .flex.items-center.gap-3{
+    gap:8px !important;
+    margin-top:5px !important;
+}
+
+#product-detail-modal .flex.items-center.gap-3 button{
+    min-width:34px !important;
+    height:34px !important;
+    padding:0 !important;
+    line-height:1.1 !important;
+    font-size:18px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+.detail-action-row{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:8px !important;
+    margin-top:10px !important;
+}
+
+.detail-qty-box{
+    flex:0 0 auto !important;
+}
+
+.detail-quantity-label{
+    font-weight:400 !important;
+    font-size:13px !important;
+    line-height:1.1 !important;
+}
+
+.detail-qty-box .flex{
+    margin-top:0 !important;
+}
+
+#detail-qty{
+    font-size:18px !important;
+    min-width:22px !important;
+    text-align:center !important;
+}
+
+#product-detail-modal .add-cart-btn{
+    width:auto !important;
+    flex:1 !important;
+    margin-top:0 !important;
+    padding:10px !important;
+    border-radius:10px !important;
+    font-size:20px !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+@media(max-width:768px){
+    #product-detail-modal .detail-modal{
+        width:90vw !important;
+        max-height:90vh !important;
+    }
+
+    #product-detail-modal .detail-body{
+        max-height:calc(90vh - 48px) !important;
+    }
+
+    #detail-image{
+        height:245px !important;
+    }
+
+    #product-detail-modal .detail-body > .p-5{
+        padding:8px 10px 10px !important;
+    }
+
+    #detail-price{
+        font-size:19px !important;
+    }
+
+    #product-detail-modal #detail-price + div,
+    #product-detail-modal #detail-price + div + div{
+        margin-top:8px !important;
+    }
+
+    #product-detail-modal .add-cart-btn{
+        margin-top:0 !important;
+        padding:9px !important;
+    }
+
+    .detail-action-row{
+        gap:6px !important;
+        margin-top:8px !important;
+    }
+}
+
 /* FINAL OVERRIDE - responsive product size */
 main{
     width:100% !important;
     max-width:none !important;
-    padding-left:0 !important;
-    padding-right:0 !important;
+    padding-left:8px !important;
+    padding-right:8px !important;
+    padding-top:6px !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    box-sizing:border-box !important;
 }
 
 #products-container{
     display:grid !important;
     grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
-    gap:8px !important;
+    gap:2px !important;
     width:100% !important;
-    padding:0 6px !important;
+    max-width:100% !important;
+    padding:0 !important;
+    margin:0 !important;
     justify-content:stretch !important;
+    box-sizing:border-box !important;
+    overflow:visible !important;
 }
 
 .product-card{
     width:100% !important;
     min-height:unset !important;
     height:auto !important;
-    aspect-ratio:150 / 268 !important;
+    aspect-ratio:auto !important;
+    border:none !important;
+    padding:0 !important;
+    border-radius:8px !important;
 }
 
 .product-image-container{
-    width:calc(100% - 10px) !important;
+    width:100% !important;
     height:auto !important;
     aspect-ratio:1 / 1 !important;
-    margin:5px auto 0 !important;
+    margin:0 !important;
+    border-radius:8px !important;
+    background:transparent !important;
+    overflow:hidden !important;
+    line-height:0 !important;
 }
 
 .product-image-container img{
     width:100% !important;
     height:100% !important;
-    object-fit:contain !important;
+    object-fit:cover !important;
+    border-radius:8px !important;
+    display:block !important;
 }
 
 @media(min-width:769px){
     main{
         max-width:1280px !important;
+        width:100% !important;
         margin-left:auto !important;
         margin-right:auto !important;
     }
 
     #products-container{
         grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)) !important;
-        padding:0 16px !important;
+        gap:2px !important;
+        width:100% !important;
+        max-width:100% !important;
+        padding:0 !important;
+        overflow:visible !important;
     }
+}
+
+/* FINAL OVERRIDE - tighter top area */
+header .max-w-7xl{
+    padding-top:8px !important;
+    padding-bottom:3px !important;
+}
+
+.logo{
+    font-size:24px !important;
+    line-height:1.15 !important;
+}
+
+.cart-btn{
+    width:42px !important;
+    height:42px !important;
+}
+
+.category-wrapper{
+    padding-top:3px !important;
+    padding-bottom:6px !important;
+}
+
+.category-wrapper .flex{
+    gap:6px !important;
+}
+
+.category-btn{
+    padding:6px 14px !important;
+    line-height:1.15 !important;
+}
+
+.search-wrapper{
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+}
+
+.search-box{
+    padding-top:8px !important;
+    padding-bottom:8px !important;
+    line-height:1.15 !important;
+}
+
+.search-icon{
+    top:50% !important;
+    transform:translateY(-50%) !important;
+}
+
+@media(max-width:768px){
+    .logo{
+        font-size:21px !important;
+    }
+
+    header .max-w-7xl{
+        padding-top:7px !important;
+        padding-bottom:2px !important;
+    }
+
+    .category-btn{
+        padding:6px 13px !important;
+    }
+
+    .search-wrapper{
+        padding-top:4px !important;
+        padding-bottom:4px !important;
+    }
+
+    .search-box{
+        padding-top:7px !important;
+        padding-bottom:7px !important;
+    }
+
+    main{
+        padding-top:4px !important;
+    }
+}
+
+/* FINAL OVERRIDE - glass product cards */
+.product-card{
+    background:#ffffff !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    box-shadow:0 2px 8px rgba(15,23,42,.08) !important;
+}
+
+.product-info{
+    background:#ffffff !important;
+}
+
+.product-info h3{
+    font-size:16px !important;
+    line-height:1.15 !important;
+    min-height:0 !important;
+    margin-bottom:2px !important;
+}
+
+.product-info p{
+    font-size:14px !important;
+    line-height:1.2 !important;
+    min-height:16px !important;
+    margin-bottom:3px !important;
+}
+
+.product-price{
+    font-size:18px !important;
+    line-height:1.15 !important;
+    margin-top:0 !important;
+}
+
+@media(max-width:768px){
+    .product-info{
+        padding:7px 8px 4px !important;
+    }
+
+    .product-info h3{
+        font-size:15px !important;
+        min-height:0 !important;
+        margin-bottom:2px !important;
+    }
+
+    .product-info p{
+        font-size:13px !important;
+        margin-bottom:2px !important;
+    }
+
+    .product-price{
+        font-size:17px !important;
+        margin-bottom:0 !important;
+    }
+}
+
+/* FINAL OVERRIDE - bottom app navigation */
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:52px;
+    background:#ffffff;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    align-items:center;
+    z-index:10000;
+    box-shadow:0 -3px 14px rgba(15,23,42,.12);
+    border-top:1px solid rgba(15,23,42,.08);
+}
+
+.bottom-nav-item{
+    height:100%;
+    border:none;
+    background:transparent;
+    color:#6b7280;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+    font-size:11px;
+    font-weight:600;
+}
+
+.bottom-nav-item span{
+    font-size:0;
+}
+
+.bottom-nav-item span::after{
+    font-size:11px;
+}
+
+.bottom-nav-item:nth-child(1) span::after{
+    content:"\9996\9875";
+}
+
+.bottom-nav-item:nth-child(2) span::after{
+    content:"\8138\4e66";
+}
+
+.bottom-nav-item:nth-child(3) span::after{
+    content:"WhatsApp";
+}
+
+.bottom-nav-item i{
+    font-size:19px;
+    line-height:1;
+}
+
+.bottom-nav-item.active{
+    color:#ef4444;
+}
+
+.bottom-nav-item:nth-child(2){
+    color:#1877f2;
+}
+
+.bottom-nav-item:nth-child(3){
+    color:#22c55e;
+}
+
+@media(max-width:768px){
+    body{
+        padding-bottom:56px !important;
+    }
+
+    .bottom-nav{
+        height:52px;
+    }
+}
+
+/* FINAL OVERRIDE - visible COCO eye blink */
+.logo-eye{
+    animation:logoEyeClose 3s infinite !important;
+    transform-origin:center !important;
+}
+
+.logo-eye::before{
+    animation:logoPupilBlink 3s infinite !important;
+}
+
+.logo-eye::after{
+    content:"" !important;
+    position:absolute !important;
+    left:18% !important;
+    right:18% !important;
+    top:50% !important;
+    width:auto !important;
+    height:2px !important;
+    background:#4f46e5 !important;
+    opacity:0 !important;
+    transform:translateY(-50%) !important;
+    animation:logoLidBlink 3s infinite !important;
+}
+
+@keyframes logoEyeClose{
+    0%, 86%, 100%{
+        transform:scaleY(1);
+    }
+    90%, 94%{
+        transform:scaleY(.32);
+    }
+}
+
+@keyframes logoPupilBlink{
+    0%, 86%, 100%{
+        opacity:1;
+        transform:scaleY(1);
+    }
+    90%, 94%{
+        opacity:0;
+        transform:scaleY(.05);
+    }
+}
+
+@keyframes logoLidBlink{
+    0%, 86%, 100%{
+        opacity:0;
+    }
+    90%, 94%{
+        opacity:1;
+    }
+}
+
+/* FINAL OVERRIDE - JS controlled COCO blink */
+.logo-eye{
+    color:inherit !important;
+    overflow:hidden !important;
+    animation:none !important;
+    transition:transform .12s ease !important;
+}
+
+.logo-eye::before,
+.logo-eye::after{
+    display:none !important;
+    content:none !important;
+}
+
+.logo-pupil{
+    width:.22em;
+    height:.22em;
+    border-radius:50%;
+    background:#4f46e5;
+    display:block;
+    transition:opacity .08s ease, transform .08s ease;
+}
+
+.logo-lid{
+    position:absolute;
+    left:18%;
+    right:18%;
+    top:50%;
+    height:2px;
+    background:#4f46e5;
+    opacity:0;
+    transform:translateY(-50%);
+    transition:opacity .08s ease;
+}
+
+.logo.logo-blink .logo-eye{
+    transform:scaleY(.28) !important;
+}
+
+.logo.logo-blink .logo-pupil{
+    opacity:0;
+    transform:scaleY(.05);
+}
+
+.logo.logo-blink .logo-lid{
+    opacity:1;
 }
 
