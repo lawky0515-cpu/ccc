@@ -43,17 +43,7 @@
     <div class="max-w-7xl mx-auto px-4 py-4">
         <div class="flex items-center justify-between gap-3">
             <div class="logo">
-                CCC Stationery
-            </div>
-            <div class="flex-1 max-w-md">
-                <div class="relative">
-                    <input
-                        id="search-input"
-                        type="text"
-                        placeholder="Search Products..."
-                        class="search-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                </div>
+                C<span class="logo-eye"><span class="logo-pupil"></span><span class="logo-lid"></span></span>C<span class="logo-eye"><span class="logo-pupil"></span><span class="logo-lid"></span></span> JAYA
             </div>
             <button
                 class="cart-btn"
@@ -125,11 +115,23 @@
         </button>    
     </div>
 </div>
+<!-- Search -->
+<div class="search-wrapper">
+    <div class="relative">
+        <input
+            id="search-input"
+            type="text"
+            placeholder="Search Products..."
+            class="search-box">
+        <div
+            id="virtual-search-text"
+            class="virtual-search-text">
+        </div>
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </div>
+</div>
 <!-- Products -->
     <main class="max-w-7xl mx-auto px-4 py-6">
-        <h2 class="text-2xl font-bold mb-6">
-            Our Products
-        </h2>
         <div
             id="products-container"
             class="products-grid">
@@ -175,33 +177,36 @@
                         </div>
                     </div>
                     <!-- Quantity -->
-                    <div style="margin-top:20px;">
-                        <h4 class="font-semibold">
-                            Quantity
-                        </h4>
-                        <div
-                            class="flex items-center gap-3 mt-2">
-                            <button
-                                onclick="changeDetailQty(-1)"
-                                class="border px-3 py-1 rounded">
-                                -
-                            </button>
-                            <span id="detail-qty">
-                                1
-                            </span>
-                            <button
-                                onclick="changeDetailQty(1)"
-                                class="border px-3 py-1 rounded">
-                                +
-                            </button>
+                    <div class="detail-action-row">
+                        <div class="detail-qty-box">
+                            <h4 class="detail-quantity-label">
+                                Quantity
+                            </h4>
+                            <div
+                                class="flex items-center gap-3 mt-2">
+                                <button
+                                    onclick="changeDetailQty(-1)"
+                                    class="border px-3 py-1 rounded">
+                                    -
+                                </button>
+                                <span id="detail-qty">
+                                    1
+                                </span>
+                                <button
+                                    onclick="changeDetailQty(1)"
+                                    class="border px-3 py-1 rounded">
+                                    +
+                                </button>
+                            </div>
                         </div>
+                        <!-- Add To Cart -->
+                        <button
+                            class="add-cart-btn"
+                            aria-label="Add to cart"
+                            onclick="addCurrentToCart()">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
                     </div>
-                    <!-- Add To Cart -->
-                    <button
-                        class="add-cart-btn mt-5"
-                        onclick="addCurrentToCart()">
-                        Add To Cart
-                    </button>
                 </div>
             </div>
         </div>
@@ -255,6 +260,34 @@
 
 
 </div>
+        </div>
+    </div>
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button
+            type="button"
+            class="bottom-nav-item active"
+            onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <i class="fa-solid fa-house"></i>
+            <span>首页</span>
+        </button>
+        <a
+            class="bottom-nav-item"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span>脸书</span>
+        </a>
+        <a
+            class="bottom-nav-item"
+            href="https://wa.me/"
+            target="_blank"
+            rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </nav>
     <!-- JS -->
     <!-- JS --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>      
