@@ -46,16 +46,20 @@ function updateCartCount() {
 // ======================
 function toggleCart() {
 
+
     const modal =
         document.getElementById(
             "cart-modal"
         );
 
+
     if (!modal) return;
+
 
     modal.classList.toggle(
         "hidden"
     );
+
 
     if (
         modal.classList.contains(
@@ -63,17 +67,31 @@ function toggleCart() {
         )
     ) {
 
-        document.body.style.overflow =
-            "auto";
+
+        if(window.unlockPageScroll){
+            window.unlockPageScroll();
+        }else{
+            document.body.style.overflow =
+                "auto";
+        }
+
 
     } else {
 
-        document.body.style.overflow =
-            "hidden";
+
+        if(window.lockPageScroll){
+            window.lockPageScroll();
+        }else{
+            document.body.style.overflow =
+                "hidden";
+        }
+
 
     }
 
+
     renderCart();
+
 
 }
 // ======================
@@ -81,21 +99,31 @@ function toggleCart() {
 // ======================
 function closeCart() {
 
+
     const modal =
         document.getElementById(
             "cart-modal"
         );
 
+
     if (modal) {
+
 
         modal.classList.add(
             "hidden"
         );
 
-        document.body.style.overflow =
-            "auto";
+
+        if(window.unlockPageScroll){
+            window.unlockPageScroll();
+        }else{
+            document.body.style.overflow =
+                "auto";
+        }
+
 
     }
+
 
 }
 // ======================
@@ -257,22 +285,31 @@ window.addToCart = addToCart;
 // ======================
 window.copyCart = function(){
 
+
     if(cart.length === 0){
+
 
         alert("Cart Empty");
 
+
         return;
+
 
     }
 
+
     let text = "CCC Stationery Order\n\n";
 
+
     cart.forEach(item => {
+
 
         text +=
             `${item.name} (${item.color || "Default"}) x${item.quantity}\n`;
 
+
     });
+
 
     const total = cart.reduce(
         (sum,item)=>
@@ -280,30 +317,42 @@ window.copyCart = function(){
         0
     );
 
+
     text += `\nTotal: RM ${total.toFixed(2)}`;
+
 
     navigator.clipboard.writeText(text);
 
+
     alert("Copied Successfully");
 
+
 };
+
 
 // ======================
 // Download PDF
 // ======================
 window.downloadPDF = function(){
 
+
     if(cart.length === 0){
+
 
         alert("Cart Empty");
 
+
         return;
+
 
     }
 
+
     const { jsPDF } = window.jspdf;
 
+
     const doc = new jsPDF();
+
 
     doc.setFontSize(18);
     doc.text(
@@ -312,11 +361,15 @@ window.downloadPDF = function(){
         20
     );
 
+
     let y = 40;
+
 
     cart.forEach(item => {
 
+
         doc.setFontSize(12);
+
 
         doc.text(
             `${item.name} (${item.color || "Default"}) x${item.quantity}`,
@@ -324,9 +377,12 @@ window.downloadPDF = function(){
             y
         );
 
+
         y += 10;
 
+
     });
+
 
     const total = cart.reduce(
         (sum,item)=>
@@ -334,9 +390,12 @@ window.downloadPDF = function(){
         0
     );
 
+
     y += 10;
 
+
     doc.setFontSize(14);
+
 
     doc.text(
         `Total: RM ${total.toFixed(2)}`,
@@ -344,8 +403,10 @@ window.downloadPDF = function(){
         y
     );
 
+
     doc.save(
         "CCC_Order.pdf"
     );
+
 
 };
