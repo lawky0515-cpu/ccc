@@ -1,6 +1,27 @@
 let currentProduct = null;
 let selectedColor = null;
 let detailQty = 1;
+let lockedScrollY = 0;
+
+window.lockPageScroll = function(){
+    lockedScrollY = window.scrollY || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+};
+
+window.unlockPageScroll = function(){
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
+    window.scrollTo(0, lockedScrollY);
+};
 // Render Products
 function renderProducts(productList = products) {
     const container =
@@ -92,7 +113,7 @@ function showDetail(id) {
         .classList.remove(
             "hidden"
         );
-    document.body.style.overflow = "hidden";
+    window.lockPageScroll();
 }
 // Close Detail
 window.closeDetail = function () {
@@ -103,7 +124,7 @@ window.closeDetail = function () {
         .classList.add(
             "hidden"
         );
-    document.body.style.overflow = "auto";
+    window.unlockPageScroll();
 };
 // Render Colors
 function renderColorOptions() {
@@ -315,6 +336,8 @@ window.onload = function(){
     filterCategory("all");
     initBanner();
     initStickyTop();
+    initVirtualSearchText();
+    initLogoBlink();
 
 
     const searchInput =
@@ -336,6 +359,177 @@ window.onload = function(){
 
 
 };
+
+function initLogoBlink(){
+
+
+    const logo =
+        document.querySelector(
+            ".logo"
+        );
+
+
+    if(!logo) return;
+
+
+    function blink(){
+
+
+        logo.classList.add(
+            "logo-blink"
+        );
+
+
+        setTimeout(function(){
+
+
+            logo.classList.remove(
+                "logo-blink"
+            );
+
+
+        },180);
+
+
+    }
+
+
+    setTimeout(
+        blink,
+        700
+    );
+
+
+    setInterval(
+        blink,
+        2600
+    );
+
+
+}
+
+function initVirtualSearchText(){
+
+
+    const searchInput =
+        document.getElementById(
+            "search-input"
+        );
+
+
+    const virtualText =
+        document.getElementById(
+            "virtual-search-text"
+        );
+
+
+    if(
+        !searchInput ||
+        !virtualText ||
+        typeof products === "undefined"
+    ){
+        return;
+    }
+
+
+    const names =
+        products
+            .map(product => product.name)
+            .filter(Boolean);
+
+
+    if(names.length === 0) return;
+
+
+    function showRandomName(){
+
+
+        if(searchInput.value.trim()){
+            virtualText.classList.add(
+                "hidden-text"
+            );
+            return;
+        }
+
+
+        const randomName =
+            names[
+                Math.floor(
+                    Math.random() * names.length
+                )
+            ];
+
+
+        virtualText.textContent =
+            randomName;
+
+
+        virtualText.classList.remove(
+            "hidden-text"
+        );
+
+
+        virtualText.classList.remove(
+            "scroll-up"
+        );
+
+
+        void virtualText.offsetWidth;
+
+
+        virtualText.classList.add(
+            "scroll-up"
+        );
+
+
+    }
+
+
+    function updateVirtualText(){
+
+
+        if(searchInput.value.trim()){
+            virtualText.classList.add(
+                "hidden-text"
+            );
+        }else{
+            virtualText.classList.remove(
+                "hidden-text"
+            );
+        }
+
+
+    }
+
+
+    showRandomName();
+
+
+    setInterval(
+        showRandomName,
+        1800
+    );
+
+
+    searchInput.addEventListener(
+        "input",
+        updateVirtualText
+    );
+
+
+    searchInput.addEventListener(
+        "focus",
+        updateVirtualText
+    );
+
+
+    searchInput.addEventListener(
+        "blur",
+        showRandomName
+    );
+
+
+}
 
 function initBanner(){
 
@@ -407,6 +601,8 @@ function initStickyTop(){
         document.querySelector("header");
     const category =
         document.querySelector(".category-wrapper");
+    const searchWrapper =
+        document.querySelector(".search-wrapper");
 
 
     if(!header) return;
@@ -423,8 +619,13 @@ function initStickyTop(){
             "--fixed-top-height",
             (
                 header.offsetHeight +
-                (category ? category.offsetHeight : 0)
+                (category ? category.offsetHeight : 0) +
+                (searchWrapper ? searchWrapper.offsetHeight : 0)
             ) + "px"
+        );
+        document.documentElement.style.setProperty(
+            "--category-height",
+            (category ? category.offsetHeight : 0) + "px"
         );
 
 
