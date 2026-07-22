@@ -15,7 +15,7 @@ body::-webkit-scrollbar{
 }
 body{
     font-family: Arial, sans-serif;
-    background:#e5e7eb;
+    background:#111111 url("jpg/background-2532.jpg") center / cover fixed no-repeat;
     margin:0;
     padding:0 0 56px;
 }
@@ -106,7 +106,7 @@ body.page-scrolled .banner{
 .logo{
     font-size:28px;
     font-weight:bold;
-    color:#4f46e5;
+    color:#facc15;
 }
 
 .logo-eye{
@@ -129,7 +129,7 @@ body.page-scrolled .banner{
     width:.28em;
     height:.28em;
     border-radius:50%;
-    background:#4f46e5;
+    background:#facc15;
     transform-origin:center;
     animation:logoBlink 3.2s infinite;
 }
@@ -141,7 +141,7 @@ body.page-scrolled .banner{
     top:50%;
     width:.24em;
     height:2px;
-    background:#4f46e5;
+    background:#facc15;
     transform:translateY(-50%);
 }
 
@@ -155,7 +155,7 @@ body.page-scrolled .banner{
 }
 /* ===== Search ===== */
 .search-wrapper{
-    background:#fff;
+    background:#000000;
     padding:10px 12px 12px;
     box-shadow:0 2px 8px rgba(0,0,0,.06);
 }
@@ -166,16 +166,16 @@ body.page-scrolled .banner{
 .search-box{
     width:100%;
     padding:12px 12px 12px 40px;
-    border:2px solid #4f46e5;
+    border:2px solid #facc15;
     border-radius:999px;
     outline:none;
     background:#ffffff;
     color:#111827;
 }
 .search-box:focus{
-    border-color:#4338ca;
+    border-color:#eab308;
     background:#ffffff;
-    box-shadow:0 0 0 3px rgba(79,70,229,.14);
+    box-shadow:0 0 0 3px rgba(250,204,21,.18);
 }
 .search-box::placeholder{
     color:transparent;
@@ -255,8 +255,8 @@ body.page-scrolled .banner{
     cursor:pointer;
 }
 .category-btn.active{
-    background:#4f46e5;
-    color:white;
+    background:#facc15;
+    color:#000000;
 }
 /* ===== View Buttons ===== */
 .view-btn{
@@ -441,12 +441,12 @@ body.page-scrolled .banner{
 }
 header{
     position:static;
-    background:#fff;
+    background:#000000;
     margin-bottom:0;
 }
 .category-wrapper{
     position:static;
-    background:#ffffff;
+    background:#000000;
     padding-top:12px;
     padding-bottom:12px;
     box-shadow:0 2px 8px rgba(0,0,0,.08);
@@ -458,7 +458,7 @@ body.page-scrolled header{
     left:0;
     right:0;
     z-index:9999;
-    background:#fff;
+    background:#000000;
     box-shadow:none;
 }
 
@@ -470,7 +470,7 @@ body.page-scrolled .category-wrapper{
     width:100%;
     max-width:none;
     z-index:9998;
-    background:#fff;
+    background:#000000;
     box-shadow:0 3px 8px rgba(0,0,0,.08);
 }
 
@@ -481,7 +481,7 @@ body.page-scrolled .search-wrapper{
     right:0;
     width:100%;
     z-index:9997;
-    background:#fff;
+    background:#000000;
 }
 
 body.page-scrolled main{
@@ -811,14 +811,15 @@ header .max-w-7xl{
 
 /* FINAL OVERRIDE - glass product cards */
 .product-card{
-    background:#ffffff !important;
+    background:rgba(0,0,0,.2) !important;
     backdrop-filter:none !important;
     -webkit-backdrop-filter:none !important;
     box-shadow:0 2px 8px rgba(15,23,42,.08) !important;
 }
 
 .product-info{
-    background:#ffffff !important;
+    background:rgba(0,0,0,.2) !important;
+    color:#ffffff !important;
 }
 
 .product-info h3{
@@ -826,6 +827,7 @@ header .max-w-7xl{
     line-height:1.15 !important;
     min-height:0 !important;
     margin-bottom:2px !important;
+    color:#ffffff !important;
 }
 
 .product-info p{
@@ -833,9 +835,11 @@ header .max-w-7xl{
     line-height:1.2 !important;
     min-height:16px !important;
     margin-bottom:3px !important;
+    color:#e5e7eb !important;
 }
 
 .product-price{
+    color:#facc15 !important;
     font-size:18px !important;
     line-height:1.15 !important;
     margin-top:0 !important;
@@ -870,13 +874,13 @@ header .max-w-7xl{
     right:0;
     bottom:0;
     height:52px;
-    background:#ffffff;
+    background:#000000;
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     align-items:center;
     z-index:10000;
     box-shadow:0 -3px 14px rgba(15,23,42,.12);
-    border-top:1px solid rgba(15,23,42,.08);
+    border-top:1px solid rgba(250,204,21,.28);
 }
 
 .bottom-nav-item{
@@ -1040,5 +1044,49 @@ header .max-w-7xl{
 
 .logo.logo-blink .logo-lid{
     opacity:1;
+}
+
+/* FINAL OVERRIDE - black and yellow top bar */
+header,
+.category-wrapper,
+.search-wrapper,
+body.page-scrolled header,
+body.page-scrolled .category-wrapper,
+body.page-scrolled .search-wrapper{
+    background:#000000 !important;
+}
+
+.logo,
+.logo-pupil,
+.logo-lid{
+    color:#facc15 !important;
+}
+
+.logo-eye{
+    border-color:#facc15 !important;
+}
+
+.logo-pupil,
+.logo-lid{
+    background:#facc15 !important;
+}
+
+.cart-btn{
+    background:#000000 !important;
+    border:none !important;
+    border-radius:12px !important;
+}
+
+.cart-btn i{
+    color:#facc15 !important;
+}
+
+.category-btn.active{
+    background:#facc15 !important;
+    color:#000000 !important;
+}
+
+.search-box{
+    border-color:#facc15 !important;
 }
 
