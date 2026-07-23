@@ -1147,6 +1147,8 @@ header .max-w-7xl{
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
+    background:#22c55e !important;
+    color:#ffffff !important;
 }
 
 /* FINAL OVERRIDE - cart as page */
@@ -1739,26 +1741,41 @@ body.page-scrolled .search-wrapper{
 
 /* FINAL OVERRIDE - smooth category switching */
 #products-container{
-    transition:opacity .2s ease, transform .2s ease !important;
+    transition:opacity .12s ease !important;
 }
 
 #products-container.products-changing{
-    opacity:0 !important;
-    transform:translateX(-12px) !important;
+    opacity:.72 !important;
+    transform:none !important;
 }
 
 #products-container.products-entering{
-    animation:productsSlideIn .28s ease both;
+    animation:productsFadeIn .16s ease both;
 }
 
-@keyframes productsSlideIn{
+@keyframes productsFadeIn{
     from{
-        opacity:0;
-        transform:translateX(16px);
+        opacity:.72;
+        transform:none;
     }
     to{
         opacity:1;
         transform:translateX(0);
+    }
+}
+
+@media(max-width:768px){
+    #products-container{
+        transition:none !important;
+    }
+
+    #products-container.products-changing{
+        opacity:1 !important;
+        transform:none !important;
+    }
+
+    #products-container.products-entering{
+        animation:none !important;
     }
 }
 
@@ -1848,5 +1865,35 @@ body.page-scrolled .category-wrapper{
     background:#22c55e !important;
     border-color:#22c55e !important;
     color:#ffffff !important;
+}
+
+/* FINAL OVERRIDE - softer product modal entrance */
+#product-detail-modal:not(.hidden){
+    animation:detailOverlayFade .22s ease both;
+}
+
+#product-detail-modal:not(.hidden) .detail-modal{
+    animation:detailModalPop .28s cubic-bezier(.2,.9,.22,1) both;
+    transform-origin:center bottom;
+}
+
+@keyframes detailOverlayFade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes detailModalPop{
+    from{
+        opacity:0;
+        transform:translateY(18px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 }
 
