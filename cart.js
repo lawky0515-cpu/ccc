@@ -18,7 +18,8 @@ function addToCart(productId, color = null, qty = 1) {
         cart.push({
             ...product,
             color: color,
-            quantity: qty
+            quantity: qty,
+            selected: true
         });
     }
     updateCartCount();
@@ -47,47 +48,54 @@ function updateCartCount() {
 function toggleCart() {
 
 
-    const modal =
+    const page =
         document.getElementById(
-            "cart-modal"
+            "cart-page"
         );
 
 
-    if (!modal) return;
+    if (!page) return;
 
 
-    modal.classList.toggle(
+    page.classList.remove(
         "hidden"
+    );
+    document.body.classList.add(
+        "cart-page-open"
     );
 
 
-    if (
-        modal.classList.contains(
-            "hidden"
-        )
-    ) {
-
-
-        if(window.unlockPageScroll){
-            window.unlockPageScroll();
-        }else{
-            document.body.style.overflow =
-                "auto";
-        }
-
-
-    } else {
-
-
-        if(window.lockPageScroll){
-            window.lockPageScroll();
-        }else{
-            document.body.style.overflow =
-                "hidden";
-        }
-
-
+    if(window.currentCategory !== undefined){
+        window.currentCategory = "";
     }
+
+
+    document
+        .querySelectorAll(
+            ".category-btn"
+        )
+        .forEach(function(btn){
+            btn.classList.remove(
+                "active"
+            );
+        });
+
+
+    const productsContainer =
+        document.getElementById(
+            "products-container"
+        );
+
+
+    if(productsContainer){
+        productsContainer.innerHTML = "";
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 
     renderCart();
@@ -100,26 +108,21 @@ function toggleCart() {
 function closeCart() {
 
 
-    const modal =
+    const page =
         document.getElementById(
-            "cart-modal"
+            "cart-page"
         );
 
 
-    if (modal) {
+    if (page) {
 
 
-        modal.classList.add(
+        page.classList.add(
             "hidden"
         );
-
-
-        if(window.unlockPageScroll){
-            window.unlockPageScroll();
-        }else{
-            document.body.style.overflow =
-                "auto";
-        }
+        document.body.classList.remove(
+            "cart-page-open"
+        );
 
 
     }
@@ -147,6 +150,26 @@ window.removeItem = function(index) {
     updateCartCount();
     renderCart();
 };
+
+window.toggleCartItemSelected = function(index) {
+    if (!cart[index]) return;
+    cart[index].selected =
+        !cart[index].selected;
+    renderCart();
+};
+
+window.toggleSelectAllCart = function() {
+    if(cart.length === 0) return;
+    const allSelected =
+        cart.every(item =>
+            item.selected !== false
+        );
+    cart.forEach(item => {
+        item.selected =
+            !allSelected;
+    });
+    renderCart();
+};
 // ======================
 // Render Cart
 // ======================
@@ -160,6 +183,10 @@ function renderCart() {
             "total-price"
         );
     if (!container) return;
+    const selectAllBtn =
+        document.getElementById(
+            "select-all-cart"
+        );
     if (cart.length === 0) {
         container.innerHTML = `
             <div style="
@@ -174,7 +201,20 @@ function renderCart() {
             totalPrice.textContent =
                 "RM 0.00";
         }
+        if(selectAllBtn){
+            selectAllBtn.classList.remove(
+                "selected"
+            );
+        }
         return;
+    }
+    if(selectAllBtn){
+        selectAllBtn.classList.toggle(
+            "selected",
+            cart.every(item =>
+                item.selected !== false
+            )
+        );
     }
     let total = 0;
     container.innerHTML =
@@ -182,16 +222,46 @@ function renderCart() {
             const subtotal =
                 item.price *
                 item.quantity;
-            total += subtotal;
+            if(item.selected !== false){
+                total += subtotal;
+            }
             return `
             <div style="
                 display:flex;
                 justify-content:space-between;
                 align-items:center;
-                padding:15px;
+                padding:10px;
                 border-bottom:1px solid #eee;
-                gap:15px;
+                gap:10px;
             ">
+                <button
+                    onclick="toggleCartItemSelected(${index})"
+                    aria-label="Select item"
+                    style="
+                    width:22px;
+                    height:22px;
+                    border-radius:50%;
+                    border:2px solid ${item.selected !== false ? "#facc15" : "#9ca3af"};
+                    background:${item.selected !== false ? "#facc15" : "transparent"};
+                    color:#000;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    flex:0 0 auto;
+                    ">
+                    ${item.selected !== false ? '<i class="fa-solid fa-check" style="font-size:12px;"></i>' : ""}
+                </button>
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                    style="
+                    width:58px;
+                    height:58px;
+                    border-radius:8px;
+                    object-fit:cover;
+                    background:#000;
+                    flex:0 0 auto;
+                    ">
                 <div style="flex:1;">
                     <div style="
                         font-weight:bold;
@@ -206,6 +276,12 @@ function renderCart() {
                         Color:
                         ${item.color || "Default"}
                     </div>
+                    <div class="mini-qty-control">
+                        <span>Qty</span>
+                        <button onclick="changeQty(${index},-1)">-</button>
+                        <strong>${item.quantity}</strong>
+                        <button onclick="changeQty(${index},1)">+</button>
+                    </div>
                     <div style="
                         color:#4f46e5;
                         font-weight:bold;
@@ -219,52 +295,6 @@ function renderCart() {
                     align-items:center;
                     gap:8px;
                 ">
-                    <button
-                        onclick="changeQty(${index},-1)"
-                        style="
-                        width:34px;
-                        height:34px;
-                        border:1px solid #ddd;
-                        border-radius:8px;
-                        background:white;
-                        ">
-                        -
-                    </button>
-                    <span style="
-                        min-width:24px;
-                        text-align:center;
-                        font-weight:bold;
-                    ">
-                        ${item.quantity}
-                    </span>
-                    <button
-                        onclick="changeQty(${index},1)"
-                        style="
-                        width:34px;
-                        height:34px;
-                        border:1px solid #ddd;
-                        border-radius:8px;
-                        background:white;
-                        ">
-                        +
-                    </button>
-                    <button
-                       onclick="removeItem(${index})"
-                       style="
-                       width:34px;
-                       height:34px;
-                       border:none;
-                       border-radius:50%;
-                       background:#ef4444;
-                       color:white;
-                       font-size:16px;
-                       cursor:pointer;
-                       display:flex;
-                       align-items:center;
-                       justify-content:center;
-                       ">
-                       <i class="fa-solid fa-trash"></i>
-                       </button>
                 </div>
             </div>
             `;
