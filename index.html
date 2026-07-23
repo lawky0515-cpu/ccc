@@ -45,26 +45,12 @@
             <div class="logo">
                 C<span class="logo-eye"><span class="logo-pupil"></span><span class="logo-lid"></span></span>C<span class="logo-eye"><span class="logo-pupil"></span><span class="logo-lid"></span></span> JAYA
             </div>
-            <button
-                class="cart-btn"
-                onclick="toggleCart()">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cart-count">
-                    0
-                </span>
-            </button>
         </div>
     </div>
 </header>
 <!-- Category -->
 <div class="max-w-7xl mx-auto px-4 py-4 category-wrapper">
     <div class="flex flex-nowrap gap-2 overflow-x-auto whitespace-nowrap">
-        <button
-            id="cat-all"
-            onclick="filterCategory('all')"
-            class="category-btn active">
-            All
-        </button>
         <button
             id="cat-stationery"
             onclick="filterCategory('stationery')"
@@ -132,6 +118,25 @@
 </div>
 <!-- Products -->
     <main class="max-w-7xl mx-auto px-4 py-6">
+        <section
+            id="home-wide-box"
+            class="home-wide-box">
+            <div class="home-promo-card has-light-sweep">
+                <img
+                    src="jpg/home-open.jpg"
+                    alt="COCO now open">
+            </div>
+            <div class="home-promo-card">
+                <img
+                    src="jpg/home-3d-services.jpg"
+                    alt="COCO 3D printing services">
+            </div>
+            <div class="home-promo-card">
+                <img
+                    src="jpg/home-sports.jpg"
+                    alt="COCO sports equipment">
+            </div>
+        </section>
         <div
             id="products-container"
             class="products-grid">
@@ -211,10 +216,27 @@
             </div>
         </div>
     </div>
-    <!-- Shopping Cart Modal -->
+    <!-- Poster Preview Modal -->
     <div
-        id="cart-modal"
+        id="poster-preview-modal"
         class="hidden modal-overlay">
+        <div class="poster-preview-box">
+            <button
+                type="button"
+                class="poster-preview-close"
+                onclick="closePosterPreview()">
+                &times;
+            </button>
+            <img
+                id="poster-preview-image"
+                src=""
+                alt="Poster preview">
+        </div>
+    </div>
+    <!-- Shopping Cart Page -->
+    <section
+        id="cart-page"
+        class="hidden cart-page">
         <div class="cart-modal">
             <div class="modal-header">
                 <h3>
@@ -232,7 +254,17 @@
 
 
     <div class="total-row">
-        <span>Total</span>
+        <span class="select-all-total">
+            <button
+                id="select-all-cart"
+                type="button"
+                class="select-all-btn"
+                onclick="toggleSelectAllCart()"
+                aria-label="Select all cart items">
+                <i class="fa-solid fa-check"></i>
+            </button>
+            Total
+        </span>
         <span id="total-price">
             RM 0.00
         </span>
@@ -261,14 +293,17 @@
 
 </div>
         </div>
-    </div>
+    </section>
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <button
             type="button"
             class="bottom-nav-item active"
-            onclick="window.scrollTo({top:0, behavior:'smooth'})">
-            <i class="fa-solid fa-house"></i>
+            onclick="goHome()">
+            <img
+                class="bottom-main-icon"
+                src="2x/MAIN.png"
+                alt="Home">
             <span>首页</span>
         </button>
         <a
@@ -276,7 +311,10 @@
             href="https://www.facebook.com/profile.php?id=61591210336509"
             target="_blank"
             rel="noopener">
-            <i class="fa-brands fa-facebook-f"></i>
+            <img
+                class="bottom-fb-icon"
+                src="3x/FB.png"
+                alt="Facebook">
             <span>脸书</span>
         </a>
         <a
@@ -284,9 +322,25 @@
             href="https://wa.me/60146835922"
             target="_blank"
             rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i>
+            <img
+                class="bottom-wsp-icon"
+                src="3x/WSP.png"
+                alt="WhatsApp">
             <span>WhatsApp</span>
         </a>
+        <button
+            type="button"
+            class="bottom-nav-item bottom-cart-btn"
+            onclick="toggleCart()">
+            <span id="cart-count">
+                0
+            </span>
+            <img
+                class="bottom-cart-icon"
+                src="3x/Asset 1.png"
+                alt="Cart">
+            <span>Cart</span>
+        </button>
     </nav>
     <!-- JS -->
     <!-- JS --> 
