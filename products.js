@@ -327,7 +327,7 @@ const products = [
         priceText: "Contact Us",
         category: "printing",
         desc: "Custom made 3D printed figure",
-        image: "jpg/printing-3d.png",
+        image: "jpg/printing-3d.jpg",
         colors: [
             { name: "Custom Made", code: "#facc15" }
         ]
@@ -339,7 +339,7 @@ const products = [
         priceText: "Contact Us",
         category: "printing",
         desc: "Personalized 3D printed display figure",
-        image: "jpg/printing-3d-2.png",
+        image: "jpg/printing-3d-2.jpg",
         colors: [
             { name: "Custom Made", code: "#facc15" }
         ]
@@ -351,7 +351,7 @@ const products = [
         priceText: "Contact Us",
         category: "printing",
         desc: "Made to last personalized collectible",
-        image: "jpg/printing-3d-3.png",
+        image: "jpg/printing-3d-3.jpg",
         colors: [
             { name: "Custom Made", code: "#facc15" }
         ]
