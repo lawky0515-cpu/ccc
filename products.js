@@ -320,4 +320,40 @@ const products = [
             { name: "Multicolor", code: "#eab308" }
         ]
     },
+    {
+        id: 30,
+        name: "Custom 3D Printed Collectible",
+        price: 0,
+        priceText: "Contact Us",
+        category: "printing",
+        desc: "Custom made 3D printed figure",
+        image: "jpg/printing-3d.png",
+        colors: [
+            { name: "Custom Made", code: "#facc15" }
+        ]
+    },
+    {
+        id: 31,
+        name: "Custom 3D Printed Keepsake",
+        price: 0,
+        priceText: "Contact Us",
+        category: "printing",
+        desc: "Personalized 3D printed display figure",
+        image: "jpg/printing-3d-2.png",
+        colors: [
+            { name: "Custom Made", code: "#facc15" }
+        ]
+    },
+    {
+        id: 32,
+        name: "Custom 3D Printed Story Figure",
+        price: 0,
+        priceText: "Contact Us",
+        category: "printing",
+        desc: "Made to last personalized collectible",
+        image: "jpg/printing-3d-3.png",
+        colors: [
+            { name: "Custom Made", code: "#facc15" }
+        ]
+    },
 ];
