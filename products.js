@@ -22,6 +22,39 @@ const products = [
         ]
     },
     {
+        id: 34,
+        name: "3 Tier Library Cart",
+        price: 300.00,
+        category: "stationery",
+        desc: "V shape",
+        image: "jpg/3 tier cart.jpg",
+        colors: [
+            { name: "Standard", code: "#000000" }
+        ]
+    },
+    {
+        id: 35,
+        name: "3 Tier Library Cart",
+        price: 300.00,
+        category: "stationery",
+        desc: "T shape",
+        image: "jpg/3 Tier Storage cart.jpg",
+        colors: [
+            { name: "Standard", code: "#000000" }
+        ]
+    },
+    {
+        id: 41,
+        name: "3 Tier Library Cart",
+        price: 300.00,
+        category: "stationery",
+        desc: "L shape",
+        image: "jpg/3 Tier Cart L.jpg",
+        colors: [
+            { name: "Standard", code: "#000000" }
+        ]
+    },
+    {
         id: 3,
         name: "Basketball Size 5",
         price: 138,
@@ -311,13 +344,94 @@ const products = [
     },
     {
         id: 29,
-        name: "Percussion Set",
-        price: 52.00,
+        name: "Percussion set",
+        price: 60.00,
         category: "music",
-        desc: "in set of 5 percussion",
-        image: "jpg/PS.jpg",
+        desc: "in set of 7 percussion",
+        image: "jpg/Percussion set 7 pcs.jpg",
         colors: [
             { name: "Multicolor", code: "#eab308" }
+        ]
+    },
+    {
+        id: 33,
+        name: "Glockenspiel",
+        price: 130.00,
+        category: "music",
+        desc: "16 Notes",
+        image: "jpg/Glockenspiel.jpg",
+        colors: [
+            { name: "Multicolor", code: "#000000" }
+        ]
+    },
+    {
+        id: 36,
+        name: "Alice Rhythm Egg Shaker",
+        price: 8.00,
+        category: "music",
+        desc: "1 piece",
+        image: "jpg/Alice Rhythm Egg Shaker.jpg",
+        colors: [
+            { name: "Purple", code: "#8b5cf6" },
+            { name: "Red", code: "#ef4444" },
+            { name: "Green", code: "#22c55e" },
+            { name: "Blue", code: "#2563eb" },
+            { name: "Black", code: "#000000" },
+            { name: "Yellow", code: "#eab308" }
+        ]
+    },
+    {
+        id: 37,
+        name: "Rhythm Egg Shaker",
+        price: 3.00,
+        category: "music",
+        desc: "2 pieces",
+        image: "jpg/Rhythm Egg Shaker.jpg",
+        colors: [
+            { name: "Red", code: "#ef4444" },
+            { name: "Blue", code: "#2563eb" },
+            { name: "Yellow", code: "#eab308" },
+            { name: "Green", code: "#22c55e" },
+            { name: "Pink", code: "#ec4899" }
+        ]
+    },
+    {
+        id: 38,
+        name: "Wooden Claves",
+        price: 5.00,
+        category: "music",
+        desc: "1 pair",
+        image: "jpg/Wooden Claves.jpg",
+        colors: [
+            { name: "Wooden", code: "#000000" }
+        ]
+    },
+    {
+        id: 39,
+        name: "TAMBOURINE",
+        price: 6.00,
+        category: "music",
+        desc: "11 cm x 13cm",
+        image: "jpg/TAMBOURINE.jpg",
+        colors: [
+            { name: "Red", code: "#ef4444" },
+            { name: "Yellow", code: "#eab308" },
+            { name: "Blue", code: "#2563eb" },
+            { name: "Green", code: "#22c55e" },
+            { name: "Pink", code: "#ec4899" },
+            { name: "White", code: "#ffffff" },
+            { name: "Black", code: "#000000" }
+        ]
+    },
+    {
+        id: 40,
+        name: "Drum",
+        price: 70.00,
+        category: "music",
+        desc: "35 cm",
+        image: "jpg/drum 35cm.jpg",
+        colors: [
+            { name: "Red", code: "#ef4444" }
         ]
     },
     {
