@@ -966,7 +966,7 @@ header .max-w-7xl{
     backdrop-filter:blur(14px) saturate(150%);
     -webkit-backdrop-filter:blur(14px) saturate(150%);
     display:grid;
-    grid-template-columns:repeat(4, 1fr);
+    grid-template-columns:repeat(3, 1fr);
     align-items:center;
     z-index:10000;
     box-shadow:0 -3px 14px rgba(15,23,42,.12);
@@ -1009,7 +1009,7 @@ header .max-w-7xl{
     content:none !important;
 }
 
-.bottom-nav-item:nth-child(4) span:not(#cart-count)::after{
+.bottom-nav-item:nth-child(3) span:not(#cart-count)::after{
     content:none !important;
 }
 
@@ -1030,7 +1030,7 @@ header .max-w-7xl{
     color:#000000;
 }
 
-.bottom-nav-item:nth-child(4){
+.bottom-nav-item:nth-child(3){
     color:#000000;
     position:relative;
 }
@@ -1060,13 +1060,6 @@ header .max-w-7xl{
 }
 
 .bottom-fb-icon{
-    width:22px !important;
-    height:22px !important;
-    object-fit:contain !important;
-    display:block !important;
-}
-
-.bottom-wsp-icon{
     width:22px !important;
     height:22px !important;
     object-fit:contain !important;
