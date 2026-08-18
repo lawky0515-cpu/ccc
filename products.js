@@ -1,16 +1,5 @@
 const products = [
     {
-        id: 1,
-        name: "Acrylc Marker",
-        price: 42.00,
-        category: "art",
-        desc: "24 colours",
-        image: "jpg/ACRYLIC MARKER.jpg",
-        colors: [
-            { name: "24 colours", code: "#000000" }
-        ]
-    },
-    {
         id: 2,
         name: "A4 Clipboard",
         price: 40.00,
@@ -25,11 +14,66 @@ const products = [
         id: 52,
         name: "Wooden Craft Sticks",
         price: 80.00,
-        category: "stem",
+        category: "art",
         desc: "10 SET",
         image: "jpg/IC STICK.jpg",
         colors: [
             { name: "Multicolor", code: "#000000" }
+        ]
+    },
+    {
+        id: 54,
+        name: "Lightweight Clay White",
+        price: 25.00,
+        category: "art",
+        desc: "500g",
+        image: "jpg/white clay.jpg",
+        colors: [
+            { name: "White", code: "#ffffff" }
+        ]
+    },
+    {
+        id: 55,
+        name: "Colorful Lightweight Clay",
+        price: 35.00,
+        category: "art",
+        desc: "10 set",
+        image: "jpg/clay.jpg",
+        colors: [
+            { name: "12 Colors", code: "#000000" }
+        ]
+    },
+    {
+        id: 56,
+        name: "MG Acrylic Marker 24",
+        price: 35.00,
+        category: "art",
+        desc: "24 colours",
+        image: "jpg/ACRYLIC MARKER 24.jpg",
+        colors: [
+            { name: "24 colours", code: "#000000" }
+        ]
+    },
+    {
+        id: 57,
+        name: "MG Acrylic Marker 12",
+        price: 25.00,
+        category: "art",
+        desc: "12 colours",
+        image: "jpg/ACRYLIC MARKER 12.jpg",
+        colors: [
+            { name: "12 colours", code: "#000000" }
+        ]
+    },
+    {
+        id: 58,
+        name: "MG Acrylic Marker 36",
+        price: 40.00,
+        category: "art",
+        desc: "36 colours",
+        image: "jpg/ACRYLIC MARKER 36.jpg",
+        colors: [
+            { name: "36 colours", code: "#000000" }
         ]
     },
     {
@@ -290,7 +334,7 @@ const products = [
         name: "Large Wheat Medal",
         price: 4.00,
         category: "trophy-medal",
-        desc: "65mm x 4mm",
+        desc: "65mm x 4mm x 1 piece",
         image: "jpg/LARGE WHEAR MEDAL.jpg",
         colors: [
             { name: "Gold", code: "#2563eb" },
@@ -428,6 +472,28 @@ const products = [
         image: "jpg/DIY SOLAR FAN 2.jpg",
         colors: [
             { name: "Standard", code: "#000000" }
+        ]
+    },
+    {
+        id: 53,
+        name: "Round Magnet",
+        price: 30.00,
+        category: "art",
+        desc: "50 pieces",
+        image: "jpg/magnet.jpg",
+        colors: [
+            { name: "Black", code: "#000000" }
+        ]
+    },
+    {
+        id: 59,
+        name: "130 DC Motor",
+        price: 24.00,
+        category: "stem",
+        desc: "30 pieces",
+        image: "jpg/MOTOR.jpg",
+        colors: [
+            { name: "Red Bottom Cover", code: "#ef4444" }
         ]
     },
     {
