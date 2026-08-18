@@ -361,82 +361,187 @@ window.copyCart = function(){
 
 
 // ======================
-// Download PDF
+// Download PDF quotation
 // ======================
 window.downloadPDF = function(){
-
-
-    if(cart.length === 0){
-
-
-        alert("Cart Empty");
-
-
-        return;
-
-
-    }
-
-
-    const { jsPDF } = window.jspdf;
-
-
-    const doc = new jsPDF();
-
-
-    doc.setFontSize(18);
-    doc.text(
-        "CCC Stationery Order",
-        20,
-        20
-    );
-
-
-    let y = 40;
-
-
-    cart.forEach(item => {
-
-
-        doc.setFontSize(12);
-
-
-        doc.text(
-            `${item.name} (${item.color || "Default"}) x${item.quantity}`,
-            20,
-            y
+    const selectedItems =
+        cart.filter(item =>
+            item.selected !== false
         );
 
+    if(selectedItems.length === 0){
+        alert("Please select item");
+        return;
+    }
 
-        y += 10;
-
-
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+        unit:"mm",
+        format:"a4"
     });
 
+    function money(value){
+        return `RM ${Number(value || 0).toFixed(2)}`;
+    }
 
-    const total = cart.reduce(
-        (sum,item)=>
-        sum + item.price * item.quantity,
-        0
-    );
+    function drawTemplate(){
+        doc.setTextColor(0,0,0);
+        doc.setDrawColor(0,0,0);
 
+        doc.setFont("helvetica","bold");
+        doc.setFontSize(25);
+        doc.text("QUOTATION", 13, 23);
 
-    y += 10;
+        doc.setFontSize(15);
+        doc.text("COCOCROWN JAYA", 13, 37);
 
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(8.5);
+        doc.text("No 95A,", 13, 45);
+        doc.text("Lot 255, Block 3, Jalan Club", 13, 50);
+        doc.text("95000 Sri Aman, Sarawak", 13, 55);
+        doc.setTextColor(0,0,238);
+        doc.text("cococrownjaya@gmail.com", 13, 60);
 
-    doc.setFontSize(14);
+        doc.setTextColor(150,43,43);
+        doc.setFont("helvetica","bold");
+        doc.setFontSize(8.5);
+        doc.text("DATE:", 108, 45);
+        doc.text("QUOTE #", 106, 50);
+        doc.text("QUOTE TO:", 105, 55);
 
+        doc.setTextColor(0,0,0);
+        doc.setFontSize(11);
+        doc.text("ITEM", 20, 83);
 
-    doc.text(
-        `Total: RM ${total.toFixed(2)}`,
-        20,
-        y
-    );
+        doc.setFontSize(8.2);
+        doc.text("NO.", 13, 93);
+        doc.text("DESCRIPTION", 20, 91.5);
+        doc.text("QTY", 111, 91.5, {
+            align:"center"
+        });
+        doc.text("U/ PRICE", 128, 91.5, {
+            align:"center"
+        });
+        doc.text("AMOUNT", 166, 91.5, {
+            align:"center"
+        });
 
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(9);
 
-    doc.save(
-        "CCC_Order.pdf"
-    );
+        selectedItems.slice(0, 13).forEach((item, index) => {
+            const rowY = 99 + index * 7.6;
+            const subtotal =
+                item.price * item.quantity;
+            const lines =
+                doc.splitTextToSize(
+                    item.name,
+                    80
+                ).slice(0, 2);
 
+            doc.text(String(index + 1), 13, rowY);
+            doc.text(lines, 20, rowY);
+            doc.text(String(item.quantity), 111, rowY, {
+                align:"center"
+            });
+            doc.text(money(item.price), 134, rowY, {
+                align:"right"
+            });
+            doc.text(money(subtotal), 193, rowY, {
+                align:"right"
+            });
+        });
+
+        const grandTotal =
+            selectedItems.reduce(
+                (sum,item)=>
+                sum + item.price * item.quantity,
+                0
+            );
+
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(9);
+
+        doc.text(
+            "Make all checks payable to COCOCROWN JAYA.",
+            13,
+            192
+        );
+        doc.text(
+            "For questions, contact Angela at",
+            13,
+            197
+        );
+        doc.text(
+            "0146835922 or cococrownjaya@gmail.com",
+            13,
+            202
+        );
+
+        doc.setFont("helvetica","bold");
+        doc.text("THANK YOU FOR YOUR BUSINESS!", 13, 210);
+
+        doc.setFont("helvetica","bold");
+        doc.text("SUBTOTAL", 105, 199);
+        doc.setFont("helvetica","normal");
+        doc.text(money(grandTotal), 193, 199, {
+            align:"right"
+        });
+
+        doc.setFillColor(242,242,242);
+        doc.rect(100, 203, 98, 8, "F");
+        doc.setDrawColor(170,170,170);
+        doc.setLineWidth(0.15);
+        doc.line(160, 196, 160, 211);
+        doc.line(100, 203, 198, 203);
+        doc.line(100, 211, 198, 211);
+
+        doc.setFont("helvetica","bold");
+        doc.text("TOTAL", 115, 208);
+        doc.text(money(grandTotal), 193, 208, {
+            align:"right"
+        });
+
+        doc.setDrawColor(0,0,0);
+        doc.setLineWidth(0.2);
+        doc.line(12, 248, 100, 248);
+        doc.line(123, 248, 198, 248);
+
+        doc.setFont("helvetica","bold");
+        doc.setFontSize(14);
+        doc.text("COCOCROWN JAYA", 33, 244);
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(7.5);
+        doc.text("No 93A, Lot 255, Block 3, Jalan Club,", 33, 249);
+        doc.text("95000 Sri Aman, Sarawak", 39, 253);
+        doc.text("Cococrown Jaya", 43, 257);
+
+        doc.setFontSize(9);
+        doc.text(
+            "Authorised Signature & Stamp",
+            160,
+            255,
+            { align:"center" }
+        );
+
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(8);
+        doc.text("Cococrown Jaya", 13, 284);
+
+        if(selectedItems.length > 13){
+            doc.text(
+                `Only first 13 items fit this template.`,
+                12,
+                216
+            );
+        }
+
+        doc.save(
+            "quotation.pdf"
+        );
+    }
+
+    drawTemplate();
 
 };
