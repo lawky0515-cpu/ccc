@@ -22,6 +22,17 @@ const products = [
         ]
     },
     {
+        id: 52,
+        name: "Wooden Craft Sticks",
+        price: 80.00,
+        category: "stem",
+        desc: "10 SET",
+        image: "jpg/IC STICK.jpg",
+        colors: [
+            { name: "Multicolor", code: "#000000" }
+        ]
+    },
+    {
         id: 34,
         name: "3 Tier Library Cart",
         price: 300.00,
@@ -398,6 +409,28 @@ const products = [
         ]
     },
     {
+        id: 50,
+        name: "DIY Solar Fan",
+        price: 52.00,
+        category: "stem",
+        desc: "20 set",
+        image: "jpg/DIY SOLAR FAN 1.jpg",
+        colors: [
+            { name: "Standard", code: "#000000" }
+        ]
+    },
+    {
+        id: 51,
+        name: "DIY Solar Fan Kit",
+        price: 110.00,
+        category: "stem",
+        desc: "20 set",
+        image: "jpg/DIY SOLAR FAN 2.jpg",
+        colors: [
+            { name: "Standard", code: "#000000" }
+        ]
+    },
+    {
         id: 33,
         name: "Glockenspiel",
         price: 130.00,
@@ -508,7 +541,12 @@ const products = [
         desc: "13 cm 5 pair",
         image: "jpg/MARACAS.jpg",
         colors: [
-            { name: "Multicolor", code: "#000000" }
+            { name: "Pink", code: "#ec4899" },
+            { name: "Green", code: "#22c55e" },
+            { name: "Blue", code: "#2563eb" },
+            { name: "Yellow", code: "#eab308" },
+            { name: "Red", code: "#ef4444" },
+            { name: "Mix", code: "#000000" }
         ]
     },
     {
