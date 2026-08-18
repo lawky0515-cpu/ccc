@@ -385,23 +385,35 @@ window.downloadPDF = function(){
     }
 
     function drawTemplate(){
+        const pageWidth = 210;
+        const left = 13;
+        const right = 198;
+        const rowStart = 98;
+        const rowGap = 7.7;
+        const total = selectedItems.reduce(
+            (sum,item) =>
+                sum + item.price * item.quantity,
+            0
+        );
+
         doc.setTextColor(0,0,0);
         doc.setDrawColor(0,0,0);
+        doc.setLineWidth(0.2);
 
         doc.setFont("helvetica","bold");
         doc.setFontSize(25);
-        doc.text("QUOTATION", 13, 23);
+        doc.text("QUOTATION", left, 23);
 
         doc.setFontSize(15);
-        doc.text("COCOCROWN JAYA", 13, 37);
+        doc.text("COCOCROWN JAYA", left, 37);
 
         doc.setFont("helvetica","normal");
         doc.setFontSize(8.5);
-        doc.text("No 95A,", 13, 45);
-        doc.text("Lot 255, Block 3, Jalan Club", 13, 50);
-        doc.text("95000 Sri Aman, Sarawak", 13, 55);
+        doc.text("No 95A,", left, 45);
+        doc.text("Lot 255, Block 3, Jalan Club", left, 50);
+        doc.text("95000 Sri Aman, Sarawak", left, 55);
         doc.setTextColor(0,0,238);
-        doc.text("cococrownjaya@gmail.com", 13, 60);
+        doc.text("cococrownjaya@gmail.com", left, 60);
 
         doc.setTextColor(150,43,43);
         doc.setFont("helvetica","bold");
@@ -409,13 +421,19 @@ window.downloadPDF = function(){
         doc.text("DATE:", 108, 45);
         doc.text("QUOTE #", 106, 50);
         doc.text("QUOTE TO:", 105, 55);
-
         doc.setTextColor(0,0,0);
+        doc.setFont("helvetica","normal");
+        doc.text(new Date().toLocaleDateString(), 125, 45);
+
+        doc.setFont("helvetica","bold");
         doc.setFontSize(11);
         doc.text("ITEM", 20, 83);
 
+        doc.setDrawColor(220,220,220);
+        doc.line(left, 88, right, 88);
+
         doc.setFontSize(8.2);
-        doc.text("NO.", 13, 93);
+        doc.text("NO.", left, 93);
         doc.text("DESCRIPTION", 20, 91.5);
         doc.text("QTY", 111, 91.5, {
             align:"center"
@@ -427,11 +445,27 @@ window.downloadPDF = function(){
             align:"center"
         });
 
+        doc.setDrawColor(235,235,235);
+        doc.line(left, 95, right, 95);
+        for(let i = 0; i <= 13; i++){
+            const lineY =
+                101 + i * rowGap;
+            doc.line(left, lineY, right, lineY);
+        }
+        doc.setDrawColor(225,225,225);
+        doc.line(18, 88, 18, 202);
+        doc.line(105, 88, 202, 88);
+        doc.line(105, 95, 202, 95);
+        doc.line(119, 88, 119, 202);
+        doc.line(143, 88, 143, 202);
+        doc.line(160, 88, 160, 211);
+        doc.line(198, 88, 198, 211);
+
         doc.setFont("helvetica","normal");
         doc.setFontSize(9);
 
         selectedItems.slice(0, 13).forEach((item, index) => {
-            const rowY = 99 + index * 7.6;
+            const rowY = rowStart + index * rowGap;
             const subtotal =
                 item.price * item.quantity;
             const lines =
@@ -440,7 +474,7 @@ window.downloadPDF = function(){
                     80
                 ).slice(0, 2);
 
-            doc.text(String(index + 1), 13, rowY);
+            doc.text(String(index + 1), left, rowY);
             doc.text(lines, 20, rowY);
             doc.text(String(item.quantity), 111, rowY, {
                 align:"center"
@@ -453,53 +487,53 @@ window.downloadPDF = function(){
             });
         });
 
-        const grandTotal =
-            selectedItems.reduce(
-                (sum,item)=>
-                sum + item.price * item.quantity,
-                0
-            );
-
         doc.setFont("helvetica","normal");
         doc.setFontSize(9);
 
         doc.text(
             "Make all checks payable to COCOCROWN JAYA.",
-            13,
+            left,
             192
         );
         doc.text(
             "For questions, contact Angela at",
-            13,
+            left,
             197
         );
         doc.text(
             "0146835922 or cococrownjaya@gmail.com",
-            13,
+            left,
             202
         );
 
         doc.setFont("helvetica","bold");
-        doc.text("THANK YOU FOR YOUR BUSINESS!", 13, 210);
+        doc.text("THANK YOU FOR YOUR BUSINESS!", left, 210);
+
+        doc.setFillColor(255,255,255);
+        doc.rect(100, 195, 98, 8, "F");
+        doc.setDrawColor(180,180,180);
+        doc.line(160, 195, 160, 211);
+        doc.line(100, 195, 198, 195);
+        doc.line(100, 203, 198, 203);
+        doc.line(100, 211, 198, 211);
 
         doc.setFont("helvetica","bold");
-        doc.text("SUBTOTAL", 105, 199);
+        doc.text("SUBTOTAL", 105, 200);
         doc.setFont("helvetica","normal");
-        doc.text(money(grandTotal), 193, 199, {
+        doc.text(money(total), 193, 200, {
             align:"right"
         });
 
         doc.setFillColor(242,242,242);
         doc.rect(100, 203, 98, 8, "F");
-        doc.setDrawColor(170,170,170);
-        doc.setLineWidth(0.15);
-        doc.line(160, 196, 160, 211);
+        doc.setDrawColor(180,180,180);
+        doc.line(160, 203, 160, 211);
         doc.line(100, 203, 198, 203);
         doc.line(100, 211, 198, 211);
 
         doc.setFont("helvetica","bold");
         doc.text("TOTAL", 115, 208);
-        doc.text(money(grandTotal), 193, 208, {
+        doc.text(money(total), 193, 208, {
             align:"right"
         });
 
@@ -511,6 +545,11 @@ window.downloadPDF = function(){
         doc.setFont("helvetica","bold");
         doc.setFontSize(14);
         doc.text("COCOCROWN JAYA", 33, 244);
+        doc.setFont("helvetica","normal");
+        doc.setFontSize(22);
+        doc.text("Cococrown Jaya", 43, 239, {
+            angle:-12
+        });
         doc.setFont("helvetica","normal");
         doc.setFontSize(7.5);
         doc.text("No 93A, Lot 255, Block 3, Jalan Club,", 33, 249);
@@ -527,7 +566,7 @@ window.downloadPDF = function(){
 
         doc.setFont("helvetica","normal");
         doc.setFontSize(8);
-        doc.text("Cococrown Jaya", 13, 284);
+        doc.text("Cococrown Jaya", left, 284);
 
         if(selectedItems.length > 13){
             doc.text(
