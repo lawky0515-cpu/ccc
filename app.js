@@ -76,6 +76,20 @@ function getProductPriceText(product){
         `RM ${product.price.toFixed(2)}`;
 }
 
+function sortProductsByName(productList){
+    return productList
+        .slice()
+        .sort((a, b) =>
+            a.name.localeCompare(
+                b.name,
+                undefined,
+                {
+                    sensitivity:"base"
+                }
+            )
+        );
+}
+
 function renderProducts(productList = products) {
     const container =
         document.getElementById(
@@ -83,7 +97,7 @@ function renderProducts(productList = products) {
         );
     if (!container) return;
     container.innerHTML = "";
-    productList.forEach(product => {
+    sortProductsByName(productList).forEach(product => {
         const card =
             document.createElement("div");
         card.className =
@@ -512,6 +526,9 @@ function renderPrintingCarousel(productList){
 
     if(!container) return;
 
+
+    productList =
+        sortProductsByName(productList);
 
     if(productList.length === 0){
         container.innerHTML = "";
